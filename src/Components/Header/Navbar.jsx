@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import LogoImage from '../../assets/Photo/Resturant Logo.png';
 
 const Navbar = () => {
@@ -48,7 +48,9 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{Links}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Login</a>
+        <Link to="/Login">
+          <a className="btn">Login</a>
+        </Link>
       </div>
     </div>
   );

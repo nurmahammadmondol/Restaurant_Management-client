@@ -8,7 +8,7 @@ import FrenchFries from '../../assets/Photo/French fries.png';
 const MarquSlider = () => {
   return (
     <div>
-      <div className="h-24 w-full bg-[#4b9f27] flex justify-around  items-center text-yellow-300  text-3xl md:text-4xl font-bold md:-rotate-6">
+      <div className="h-24 w-full bg-green-600 flex justify-around  items-center text-yellow-300  text-3xl md:text-4xl font-bold md:-rotate-6">
         <Marquee speed={40} direction="right">
           <p>THE TROPICAL ESCAPE</p>
           <img className="w-20 mx-10" src={pizzaIcon} alt="" />
@@ -21,7 +21,7 @@ const MarquSlider = () => {
           <img className="w-14 mx-10" src={FrenchFries} alt="" />
         </Marquee>
       </div>
-      <div className="h-24 w-full bg-[#4b9f27] hidden md:flex justify-around items-center text-yellow-300 text-3xl md:text-4xl font-bold rotate-6 md:-mt-28 z-50 ">
+      <div className="h-24 w-full bg-green-600 hidden md:flex justify-around items-center text-yellow-300 text-3xl md:text-4xl font-bold rotate-6 md:-mt-28 z-50 ">
         <Marquee speed={40}>
           <p>THE TROPICAL ESCAPE</p>
           <img className="w-20 mx-10" src={pizzaIcon} alt="" />

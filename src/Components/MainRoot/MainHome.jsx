@@ -1,6 +1,8 @@
 import React from 'react';
 import Banner from '../Header/Banner';
 import MarquSlider from '../Header/MarquSlider';
+import OurBestCategories from '../Main/BestCategories/OurBestCategories';
+import AchievementsAchieved from '../Main/Achievements/AchievementsAchieved';
 
 const MainHome = () => {
   return (
@@ -8,6 +10,12 @@ const MainHome = () => {
       <Banner></Banner>
       <div className="">
         <MarquSlider></MarquSlider>
+      </div>
+      <div>
+        <OurBestCategories></OurBestCategories>
+      </div>
+      <div>
+        <AchievementsAchieved></AchievementsAchieved>
       </div>
     </div>
   );

@@ -11,10 +11,10 @@ import sormaImage from '../../assets/Photo/sorma.png';
 const Banner = () => {
   return (
     <div className="h-full md:h-[600px] bg-[#E69138] p-5 text-white">
-      <h2 className="text-center text-3xl md:text-5xl lg:text-7xl font-bold mt-5">
+      <h2 className="text-center text-4xl md:text-6xl lg:text-8xl font-bold mt-5 bangers-regular-font">
         Premium Quality Restaurant
       </h2>
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-4 mx-5 md:mx-10 md:items-center space-y-5 md:space-y-0">
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-4 mx-5 md:mx-10 md:items-center space-y-5 md:space-y-0">
         <div className="">
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae

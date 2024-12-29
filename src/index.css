@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bangers-regular-font {
+  font-family: 'Bangers', serif;
+  font-weight: 400;
+  font-style: normal;
+}
