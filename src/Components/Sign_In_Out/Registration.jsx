@@ -6,7 +6,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../FirebaseProvider/Firebase.config';
 
 const Registration = () => {
-  const { CreateUserWithEmail } = useContext(AuthContent);
+  const { CreateUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
 
@@ -41,6 +41,17 @@ const Registration = () => {
       .catch(error => {
         console.log(error.message);
         setError(error.message);
+      });
+  };
+
+  const handleCreateUserGoogle = () => {
+    CreateUserWithGoogle()
+      .then(result => {
+        console.log(result.user);
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error.message);
       });
   };
 
@@ -136,7 +147,10 @@ const Registration = () => {
         <div className="divider ">Or</div>
 
         <div className="card-body">
-          <button className="w-full btn bg-[#E69138] text-white">
+          <button
+            onClick={handleCreateUserGoogle}
+            className="w-full btn bg-[#E69138] text-white"
+          >
             <i class="fa-brands fa-google fa-bounce fa-xl"></i>Registration with
             Google
           </button>

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
 
 const Login = () => {
-  const { LogInUserWithEmail } = useContext(AuthContent);
+  const { LogInUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
+  const navigate = useNavigate();
 
   const handleLogInUser = e => {
     e.preventDefault();
@@ -16,9 +17,21 @@ const Login = () => {
     LogInUserWithEmail(email, password)
       .then(result => {
         console.log(result.user, 'login success');
+        navigate('/');
       })
       .catch(error => {
         console.log(error);
+      });
+  };
+
+  const handleCreateUserGoogle = () => {
+    CreateUserWithGoogle()
+      .then(result => {
+        console.log(result.user);
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error.message);
       });
   };
 
@@ -79,7 +92,10 @@ const Login = () => {
         <div className="divider ">Or</div>
 
         <div className="card-body">
-          <button className="w-full btn bg-[#E69138] text-white">
+          <button
+            onClick={handleCreateUserGoogle}
+            className="w-full btn bg-[#E69138] text-white"
+          >
             <i class="fa-brands fa-google fa-bounce fa-xl"></i>Login with Google
           </button>
 

@@ -78,17 +78,21 @@ const Navbar = () => {
                     src={User?.photoURL}
                     alt=""
                   />
-                  <p className="text-yellow-600 text-lg md:text-xl">
+                  <p className="text-yellow-600 text-lg">
                     {User?.displayName || 'User Name'}
                   </p>
                 </div>
 
+                <Link to="/AddFood">
+                  <li>
+                    <a>Add Food</a>
+                  </li>
+                </Link>
+
                 <li>
                   <a>My Foods</a>
                 </li>
-                <li>
-                  <a>Add food</a>
-                </li>
+
                 <li>
                   <a>My Orders</a>
                 </li>
@@ -105,7 +109,7 @@ const Navbar = () => {
 
         {!User && (
           <Link to="/Login">
-            <a className="btn">Login</a>
+            <a className="btn text-[#E69138] font-bold">Login</a>
           </Link>
         )}
       </div>
