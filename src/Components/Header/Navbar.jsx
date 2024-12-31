@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LogoImage from '../../assets/Photo/Resturant Logo.png';
+import { AuthContent } from '../AuthProvider/AuthProvider';
 
 const Navbar = () => {
+  const { User, LogOutUser } = useContext(AuthContent);
+
   const Links = (
     <div className="md:flex items-center gap-7 md:text-lg font-bold">
       <NavLink>Home</NavLink>
@@ -14,8 +17,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-[#E69138] py-2 text-white">
-      <div className="navbar-start">
+    <div className="navbar flex justify-between items-center bg-[#E69138] py-2 text-white">
+      <div className="">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -44,13 +47,67 @@ const Navbar = () => {
           <img src={LogoImage} alt="logo" />
         </a>
       </div>
-      <div className="navbar-center hidden lg:flex">
+      <div className="hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{Links}</ul>
       </div>
-      <div className="navbar-end">
-        <Link to="/Login">
-          <a className="btn">Login</a>
-        </Link>
+      <div className="">
+        {User && (
+          <div className="drawer drawer-end">
+            <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
+            <div className="drawer-content">
+              {/* Page content here */}
+              <label htmlFor="my-drawer-4" className="drawer-button  ">
+                <img
+                  className="w-14 h-14 border rounded-full "
+                  src={User?.photoURL}
+                  alt=""
+                />
+              </label>
+            </div>
+            <div className="drawer-side z-20">
+              <label
+                htmlFor="my-drawer-4"
+                aria-label="close sidebar"
+                className="drawer-overlay"
+              ></label>
+              <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4 font-bold">
+                {/* Sidebar content here */}
+                <div className="mb-5 flex gap items-center">
+                  <img
+                    className="w-14 h-14 border-2 border-yellow-500 rounded-full mx-2"
+                    src={User?.photoURL}
+                    alt=""
+                  />
+                  <p className="text-yellow-600 text-lg md:text-xl">
+                    {User?.displayName || 'User Name'}
+                  </p>
+                </div>
+
+                <li>
+                  <a>My Foods</a>
+                </li>
+                <li>
+                  <a>Add food</a>
+                </li>
+                <li>
+                  <a>My Orders</a>
+                </li>
+                <button
+                  onClick={LogOutUser}
+                  className="btn mt-10 bg-[#E69138] text-white font-bold"
+                >
+                  Log Out
+                </button>
+              </ul>
+            </div>
+          </div>
+        )}
+
+        {!User && (
+          <Link to="/Login">
+            <a className="btn">Login</a>
+          </Link>
+        )}
       </div>
     </div>
   );

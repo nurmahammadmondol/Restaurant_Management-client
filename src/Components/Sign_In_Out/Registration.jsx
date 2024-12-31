@@ -1,11 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../FirebaseProvider/Firebase.config';
 
 const Registration = () => {
   const { CreateUserWithEmail } = useContext(AuthContent);
   const [Error, setError] = useState(null);
+  const navigate = useNavigate();
 
   const handleCreateNewUser = e => {
     e.preventDefault();
@@ -16,12 +19,24 @@ const Registration = () => {
     const password = form.password.value;
     const photo = form.photo.value;
 
-    const UserInfo = { name, email, password, photo };
-    console.log(UserInfo);
+    const UserProfile = {
+      displayName: name,
+      photoURL: photo,
+    };
+
     CreateUserWithEmail(email, password)
       .then(result => {
         console.log(result.user);
         setError(null);
+
+        updateProfile(auth.currentUser, UserProfile)
+          .then(() => {
+            console.log('update success');
+            navigate('/');
+          })
+          .catch(error => {
+            console.log(error.message);
+          });
       })
       .catch(error => {
         console.log(error.message);

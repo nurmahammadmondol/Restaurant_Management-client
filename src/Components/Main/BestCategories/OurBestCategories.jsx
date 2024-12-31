@@ -4,6 +4,8 @@ import Burger from '../../../assets/Photo/chicken-burger.png';
 import Pizza from '../../../assets/Photo/pizza.png';
 import sandwich from '../../../assets/Photo/sandwich.png';
 import sorma from '../../../assets/Photo/sorma.png';
+import muffins from '../../../assets/Photo/muffins.png';
+import friedChicken from '../../../assets/Photo/fried-chicken.png';
 
 const OurBestCategories = () => {
   const { name } = useContext(AuthContent);
@@ -15,28 +17,28 @@ const OurBestCategories = () => {
       </h4>
 
       <div className="grid grid-cols-3 md:grid-cols-6 mt-7 gap-5">
-        <div className="border rounded-lg  h-[250px] col-span-2 md:col-span-3 flex items-center justify-center p-5 bg-gray-50">
+        <div className="border rounded-lg  h-[250px] col-span-2 md:col-span-3 flex items-center justify-center p-5 bg-gray-100">
           <img className="h-full" src={Pizza} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px]  flex items-center justify-center p-5 bg-gray-50">
+        <div className="border rounded-lg h-[250px]  flex items-center justify-center p-5 bg-gray-100">
           <img className="h-full" src={Burger} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-50">
+        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-100">
           <img className="h-full " src={sandwich} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-1  flex items-center justify-center p-5 bg-gray-50">
+        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-1  flex items-center justify-center p-5 bg-gray-100">
+          <img className="h-full" src={friedChicken} alt="" />
+        </div>
+
+        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-100">
           <img className="h-full" src={sorma} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-3  flex items-center justify-center p-5 bg-gray-50">
-          <img className="h-full" src={Burger} alt="" />
-        </div>
-
-        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-50">
-          <img className="h-full" src={Burger} alt="" />
+        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-3  flex items-center justify-center p-5 bg-gray-100">
+          <img className="h-full" src={muffins} alt="" />
         </div>
       </div>
 
