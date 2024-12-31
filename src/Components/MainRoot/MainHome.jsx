@@ -3,6 +3,7 @@ import Banner from '../Header/Banner';
 import MarquSlider from '../Header/MarquSlider';
 import OurBestCategories from '../Main/BestCategories/OurBestCategories';
 import AchievementsAchieved from '../Main/Achievements/AchievementsAchieved';
+import WhyChooseUs from '../Main/WhyChooseUs/WhyChooseUs';
 
 const MainHome = () => {
   return (
@@ -16,6 +17,9 @@ const MainHome = () => {
       </div>
       <div>
         <AchievementsAchieved></AchievementsAchieved>
+      </div>
+      <div>
+        <WhyChooseUs></WhyChooseUs>
       </div>
     </div>
   );

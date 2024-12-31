@@ -89,13 +89,18 @@ const Navbar = () => {
                   </li>
                 </Link>
 
-                <li>
-                  <a>My Foods</a>
-                </li>
+                <Link to="/MyFoods">
+                  <li>
+                    <a>My Foods</a>
+                  </li>
+                </Link>
 
-                <li>
-                  <a>My Orders</a>
-                </li>
+                <Link to="/MyOrders">
+                  <li>
+                    <a>My Orders</a>
+                  </li>
+                </Link>
+
                 <button
                   onClick={LogOutUser}
                   className="btn mt-10 bg-[#E69138] text-white font-bold"
