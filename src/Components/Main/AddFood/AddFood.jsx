@@ -1,5 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
+import axios from 'axios';
+import { data } from 'autoprefixer';
 
 const AddFood = () => {
   const { User } = useContext(AuthContent);
@@ -19,6 +21,7 @@ const AddFood = () => {
     const Price = form.Price.value;
     const Quantity = form.quantity.value;
     const FoodImage = form.FoodImage.value;
+    const Description = form.Description.value;
 
     const All_Data = {
       UserName,
@@ -28,7 +31,12 @@ const AddFood = () => {
       Quantity,
       FoodImage,
       FoodCategory,
+      Description,
     };
+
+    axios.post('http://localhost:3000/AllFoods', All_Data).then(data => {
+      console.log('success', data.data);
+    });
     console.log(All_Data);
   };
 
@@ -142,6 +150,19 @@ const AddFood = () => {
               className="input  w-full bg-slate-50"
               name="FoodImage"
             />
+          </label>
+        </div>
+
+        <div className="md:flex gap-5 clear-start w-full mb-1 ">
+          <label className="form-control w-full ">
+            <div className="label">
+              <span className="label-text font-bold">Description</span>
+            </div>
+            <textarea
+              className="textarea  w-full bg-slate-50"
+              placeholder="Enter describe it in at least 20 words."
+              name="Description"
+            ></textarea>
           </label>
         </div>
 

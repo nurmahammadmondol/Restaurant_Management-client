@@ -7,6 +7,8 @@ import Registration from '../Sign_In_Out/Registration';
 import AddFood from '../Main/AddFood/AddFood';
 import MyFoods from '../Main/MyFoods/MyFoods';
 import MyOrders from '../Main/MyOrders/MyOrders';
+import AllFoods from '../Main/AllFoods/AllFoods';
+import Gallery from '../Main/Gallery/Gallery';
 
 const Routers = createBrowserRouter([
   {
@@ -17,6 +19,15 @@ const Routers = createBrowserRouter([
       {
         path: '/',
         element: <MainHome></MainHome>,
+      },
+      {
+        path: '/AllFoods',
+        element: <AllFoods></AllFoods>,
+        loader: () => fetch('http://localhost:3000/AllFoods'),
+      },
+      {
+        path: '/Gallery',
+        element: <Gallery></Gallery>,
       },
 
       {
