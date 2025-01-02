@@ -9,6 +9,7 @@ import MyFoods from '../Main/MyFoods/MyFoods';
 import MyOrders from '../Main/MyOrders/MyOrders';
 import AllFoods from '../Main/AllFoods/AllFoods';
 import Gallery from '../Main/Gallery/Gallery';
+import Details from '../Main/Details/Details';
 
 const Routers = createBrowserRouter([
   {
@@ -42,6 +43,12 @@ const Routers = createBrowserRouter([
       {
         path: '/MyOrders',
         element: <MyOrders></MyOrders>,
+      },
+      {
+        path: '/Details/:id',
+        element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/AllFoods/${params.id}`),
       },
       {
         path: '/Login',

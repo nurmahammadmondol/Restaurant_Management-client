@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleFoodCard = ({ food }) => {
   const {
+    _id,
     UserName,
     UserEmail,
     FoodName,
@@ -58,20 +60,26 @@ const SingleFoodCard = ({ food }) => {
             />
           </div>
         </div>
-        <div className="w-3/4">
+        <div className="lg:w-3/4">
           <small>
             Pepper Mayo Cruncher + Fries + Coleslaw + 1 Pc Chicken + Drink
           </small>
         </div>
 
         <div className="flex justify-between items-center mt-5">
-          <p className="text-red-500 font-extrabold  text-xl bangers-regular-font">
-            ${Price}
+          <p className=" bangers-regular-font flex items-center gap-5">
+            <span className="text-red-500 font-bold  text-xl ">
+              $ {Price - 50}
+            </span>
+
+            <del className="text-gray-500 ">$ {Price}</del>
           </p>
-          <button className="btn btn-sm btn-neutral">
-            <span className="text-xs">Buy Now</span>
-            <i class="fa-solid fa-cart-shopping"></i>
-          </button>
+          <Link to={`/Details/${_id}`}>
+            <button className="btn btn-sm btn-neutral">
+              <span className="text-xs">Details </span>
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+          </Link>
         </div>
       </div>
     </div>
