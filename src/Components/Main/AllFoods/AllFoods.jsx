@@ -4,15 +4,26 @@ import SingleFoodCard from './SingleFoodCard';
 import muffinLogo from '../../../assets/Photo/muffin_PNG24.png';
 import burritoLogo from '../../../assets/Photo/food-burrito-stroke-9a4868.webp';
 import taco from '../../../assets/Photo/file (2).png';
+import PageTittle from '../PageBanner/PageTittle';
 
 const AllFoods = () => {
-  const All_Foods = useLoaderData();
-  const [parPageItem, setParPageItem] = useState(6);
+  const [Data, setData] = useState([]);
+  const [parPageItem, setParPageItem] = useState(4);
   const [CurrentPage, setCurrentPage] = useState(1);
   const [countFoods, setCountFoods] = useState(null);
 
   const TotalPages = Math.ceil(countFoods / parPageItem);
   const Pages = [...Array(TotalPages).keys()];
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:3000/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
+    )
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      });
+  }, [CurrentPage, parPageItem]);
 
   useEffect(() => {
     fetch('http://localhost:3000/AllFoodsCount')
@@ -21,8 +32,6 @@ const AllFoods = () => {
         setCountFoods(data.count);
       });
   }, []);
-
-  const [Data, setData] = useState(All_Foods);
 
   const handleParPagesItems = e => {
     const ParPageItems = parseInt(e.target.value);
@@ -42,9 +51,9 @@ const AllFoods = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto my-20">
-      <div>
-        <h4>Banner</h4>
+    <div className="w-11/12 mx-auto my-10">
+      <div className="mb-20">
+        <PageTittle></PageTittle>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 lg:gap-16">

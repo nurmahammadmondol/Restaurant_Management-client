@@ -11,6 +11,7 @@ import AllFoods from '../Main/AllFoods/AllFoods';
 import Gallery from '../Main/Gallery/Gallery';
 import Details from '../Main/Details/Details';
 import ContactUs from '../Main/ContactUs/ContactUs';
+import AboutUs from '../Main/AboutUs/AboutUs';
 
 const Routers = createBrowserRouter([
   {
@@ -25,7 +26,6 @@ const Routers = createBrowserRouter([
       {
         path: '/AllFoods',
         element: <AllFoods></AllFoods>,
-        loader: () => fetch('http://localhost:3000/AllFoods'),
       },
       {
         path: '/Gallery',
@@ -40,6 +40,7 @@ const Routers = createBrowserRouter([
       {
         path: '/MyFoods',
         element: <MyFoods></MyFoods>,
+        loader: () => fetch('http://localhost:3000/AllFoods'),
       },
       {
         path: '/MyOrders',
@@ -50,6 +51,10 @@ const Routers = createBrowserRouter([
         element: <Details></Details>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/AllFoods/${params.id}`),
+      },
+      {
+        path: '/AboutUs',
+        element: <AboutUs></AboutUs>,
       },
       {
         path: '/ContactUs',

@@ -2,17 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SingleFoodCard = ({ food }) => {
-  const {
-    _id,
-    UserName,
-    UserEmail,
-    FoodName,
-    Price,
-    Quantity,
-    FoodImage,
-    FoodCategory,
-    Description,
-  } = food;
+  const { _id, FoodName, Price, FoodImage } = food;
 
   return (
     <div className="card bg-orange-50 w-full shadow-xl p-7">
@@ -67,13 +57,23 @@ const SingleFoodCard = ({ food }) => {
         </div>
 
         <div className="flex justify-between items-center mt-5">
-          <p className=" bangers-regular-font flex items-center gap-5">
-            <span className="text-red-500 font-bold  text-xl ">
-              $ {Price - 50}
-            </span>
+          <div>
+            {Price >= 300 ? (
+              <div className=" bangers-regular-font flex items-center gap-5">
+                <span className="text-red-500 font-bold  text-xl">
+                  $ {Price - 50}
+                </span>
 
-            <del className="text-gray-500 ">$ {Price}</del>
-          </p>
+                <del className="text-gray-500 ">$ {Price}</del>
+              </div>
+            ) : (
+              <div>
+                <span className="text-red-500 font-bold items-center  bangers-regular-font  text-xl">
+                  $ {Price}
+                </span>
+              </div>
+            )}
+          </div>
           <Link to={`/Details/${_id}`}>
             <button className="btn btn-sm btn-neutral">
               <span className="text-xs">Details </span>

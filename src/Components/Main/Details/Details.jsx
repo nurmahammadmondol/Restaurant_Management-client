@@ -28,7 +28,7 @@ const Details = () => {
       const Sum = quantity + 1;
       setQuantity(Sum);
     } else {
-      alert('Not Available ');
+      alert('Item is not available ');
     }
   };
 
@@ -74,15 +74,15 @@ const Details = () => {
   };
 
   return (
-    <div className="w-11/12 md:w-9/12 mx-auto my-20">
+    <div className="w-11/12 lg:w-9/12 mx-auto my-20">
       <h4 className="text-2xl  mb-5 bangers-regular-font border-b pb-1">
         Details <i class="fa-solid fa-arrow-right "></i>
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full md:h-[500px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full lg:h-[500px]">
         <div className="w-full h-full   rounded-2xl p-5 md:p-10 ">
           <img src={FoodImage} alt="" />
         </div>
-        <div className="w-full h-full   rounded-2xl p-3 md:p-10 space-y-3 py-5 ">
+        <div className="w-full h-full   rounded-2xl p-3 md:p-5 lg:p-10 space-y-2 lg:space-y-3 py-5 ">
           <h3 className="text-2xl md:text-4xl mb-5 bangers-regular-font">
             {FoodName}
           </h3>
@@ -125,20 +125,29 @@ const Details = () => {
               <p>
                 Enjoy a delicious and satisfying meal with our {FoodName}, made
                 with the finest ingredients. Carefully crafted for a perfect
-                balance of flavors, it's sure to satisfy your cravings. Each
-                bite delivers a mouthwatering combination of [main ingredients],
-                all packed in a [type of bread/packaging]. Ideal for a quick
-                snack or a fulfilling meal, perfect for on-the-go or dining in.
+                balance of flavors, it's sure to satisfy your cravings. Ideal
+                for a quick snack or a fulfilling meal, perfect for on-the-go or
+                dining in.
               </p>
             )}
           </p>
-          <p className=" bangers-regular-font flex items-center gap-5">
-            <span className="text-red-500 font-bold  text-xl ">
-              $ {Price - 50}
-            </span>
 
-            <del className="text-gray-500 ">$ {Price}</del>
-          </p>
+          {Price > 300 ? (
+            <div className=" bangers-regular-font flex items-center gap-5">
+              <span className="text-red-500 font-bold  text-xl">
+                $ {Price - 50}
+              </span>
+
+              <del className="text-gray-500 ">$ {Price}</del>
+            </div>
+          ) : (
+            <div>
+              <span className="text-red-500 font-bold bangers-regular-font  text-xl">
+                $ {Price}
+              </span>
+            </div>
+          )}
+
           <ul className="text-sm space-y-1">
             <li>
               <i class="fa-brands fa-slack mr-2"></i>Free global shipping on all
@@ -154,7 +163,7 @@ const Details = () => {
             </li>
           </ul>
 
-          <div className="flex flex-wrap items-center  gap-3 py-5">
+          <div className="flex flex-wrap items-center  gap-3 py-3">
             <h6 className="text-xl  bangers-regular-font">Quantity</h6>
             <div className="border rounded-lg px-5 py-2 flex justify-between items-center gap-4">
               <button onClick={handleMinusQuantity}>-</button>
