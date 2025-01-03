@@ -8,3 +8,9 @@
   font-weight: 400;
   font-style: normal;
 }
+
+nav a.active {
+  color: red;
+  border-bottom: 2px solid red;
+  font-weight: bolder;
+}

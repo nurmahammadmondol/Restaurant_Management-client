@@ -7,17 +7,17 @@ const Navbar = () => {
   const { User, LogOutUser } = useContext(AuthContent);
 
   const Links = (
-    <div className="md:flex items-center gap-7 md:text-lg font-bold">
+    <div className="md:flex items-center gap-3 md:gap-7 md:text-lg font-semibold">
       <NavLink to="/">Home</NavLink>
       <NavLink to="/AllFoods">All Foods</NavLink>
       <NavLink to="/Gallery">Gallery</NavLink>
-      <NavLink>About</NavLink>
-      <NavLink>Contact US</NavLink>
+      <NavLink to="/About">About</NavLink>
+      <NavLink to="/ContactUs">Contact US</NavLink>
     </div>
   );
 
   return (
-    <div className="navbar flex justify-between items-center bg-[#E69138] py-2 text-white">
+    <nav className="navbar flex justify-between items-center bg-[#E69138] py-2 text-white">
       <div className="">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,16 +38,16 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-[#E69138] rounded-box z-[1] mt-3  p-2 shadow"
           >
-            {Links}
+            <li>{Links}</li>
           </ul>
         </div>
         <a className=" w-32 md:w-44">
           <img src={LogoImage} alt="logo" />
         </a>
       </div>
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex ">
         <ul className="menu menu-horizontal px-1">{Links}</ul>
       </div>
       <div className="">
@@ -118,7 +118,7 @@ const Navbar = () => {
           </Link>
         )}
       </div>
-    </div>
+    </nav>
   );
 };
 

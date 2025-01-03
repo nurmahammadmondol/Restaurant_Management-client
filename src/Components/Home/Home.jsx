@@ -12,7 +12,7 @@ const Home = () => {
       <div className="min-h-screen">
         <Outlet></Outlet>
       </div>
-      <div className="mt-20">
+      <div className="">
         <Footer></Footer>
       </div>
     </div>

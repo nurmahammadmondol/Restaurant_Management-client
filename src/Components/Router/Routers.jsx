@@ -10,6 +10,7 @@ import MyOrders from '../Main/MyOrders/MyOrders';
 import AllFoods from '../Main/AllFoods/AllFoods';
 import Gallery from '../Main/Gallery/Gallery';
 import Details from '../Main/Details/Details';
+import ContactUs from '../Main/ContactUs/ContactUs';
 
 const Routers = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const Routers = createBrowserRouter([
         element: <Details></Details>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/AllFoods/${params.id}`),
+      },
+      {
+        path: '/ContactUs',
+        element: <ContactUs></ContactUs>,
       },
       {
         path: '/Login',
