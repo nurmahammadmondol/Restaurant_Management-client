@@ -3,6 +3,7 @@ import FastFoodBoard from '../../../assets/Photo/fast-food-board-with-hamburger.
 import IconOne from '../../../assets/Photo/pizza-icon-5.png';
 import IconThere from '../../../assets/Photo/file2.png';
 import IconTwo from '../../../assets/Photo/738079.png';
+import { Link } from 'react-router-dom';
 
 const WhyChooseUs = () => {
   return (
@@ -34,9 +35,11 @@ const WhyChooseUs = () => {
           </div>
         </div>
 
-        <button className="btn px-10 bangers-regular-font  bg-orange-400 text-white text-lg font-bold border-b-4 border-r-4 border-black">
-          Order Now <i class="fa-solid fa-arrow-right"></i>
-        </button>
+        <Link to="/AllFoods">
+          <button className="btn px-10 bangers-regular-font  bg-orange-400 text-white text-lg font-bold border-b-4 border-r-4 border-black">
+            Order Now <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </Link>
       </div>
     </div>
   );

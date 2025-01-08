@@ -6,6 +6,7 @@ import sandwich from '../../../assets/Photo/sandwich.png';
 import sorma from '../../../assets/Photo/sorma.png';
 import muffins from '../../../assets/Photo/muffins.png';
 import friedChicken from '../../../assets/Photo/fried-chicken.png';
+import { Link } from 'react-router-dom';
 
 const OurBestCategories = () => {
   const { name } = useContext(AuthContent);
@@ -43,9 +44,11 @@ const OurBestCategories = () => {
       </div>
 
       <div className="flex justify-center mt-10">
-        <button className="btn px-10 btn-outline text-orange-400 font-bold">
-          All Foods<i class="fa-solid fa-arrow-right"></i>
-        </button>
+        <Link to="/AllFoods">
+          <button className="btn px-10 btn-outline text-orange-400 font-bold">
+            All Foods<i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </Link>
       </div>
     </div>
   );

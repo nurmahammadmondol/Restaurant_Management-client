@@ -4,10 +4,11 @@ import SingleFoodCard from './SingleFoodCard';
 import muffinLogo from '../../../assets/Photo/muffin_PNG24.png';
 import burritoLogo from '../../../assets/Photo/food-burrito-stroke-9a4868.webp';
 import taco from '../../../assets/Photo/file (2).png';
-import PageTittle from '../PageBanner/PageTittle';
 
 const AllFoods = () => {
   const [Data, setData] = useState([]);
+  const [query, setQuery] = useState('');
+  // console.log(Data);
   const [parPageItem, setParPageItem] = useState(4);
   const [CurrentPage, setCurrentPage] = useState(1);
   const [countFoods, setCountFoods] = useState(null);
@@ -44,19 +45,46 @@ const AllFoods = () => {
       setCurrentPage(CurrentPage - 1);
     }
   };
+
   const handleNextPage = () => {
     if (CurrentPage < Pages.length) {
       setCurrentPage(CurrentPage + 1);
     }
   };
+  console.log(query);
 
   return (
-    <div className="w-11/12 mx-auto my-10">
+    <div className="w-11/12 mx-auto my-10 ">
       <div className="mb-20">
-        <PageTittle></PageTittle>
+        <div className="w-full h-[50px] border-b-2  flex justify-between items-center py-5 px-1">
+          <h4 className="text-lg  font-bold">All the food is on this page :</h4>
+          <div>
+            <label className="input bg-slate-50 flex items-center gap-2 px-5">
+              <input
+                value={query}
+                onChange={e => setQuery(e.target.value)}
+                type="text"
+                className="grow "
+                placeholder="Search"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+                className="h-4 w-4 opacity-70"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </label>
+          </div>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 lg:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 lg:gap-16 mb-20">
         <div className="border rounded-xl p-5 mb-5 md:mb-0">
           <div className="">
             <h6 className="text-3xl bangers-regular-font mb-3 border-b-2">
@@ -99,7 +127,7 @@ const AllFoods = () => {
             </div>
 
             <h6 className="text-3xl bangers-regular-font mt-10 md:mt-16 mb-3 border-b-2">
-              Filter by
+              Size
             </h6>
             <div className="flex items-center gap-2">
               <button className="btn btn-circle">M</button>
