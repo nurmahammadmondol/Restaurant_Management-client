@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const { LogInUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
@@ -17,6 +18,13 @@ const Login = () => {
     LogInUserWithEmail(email, password)
       .then(result => {
         console.log(result.user, 'login success');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your account has been successfully logged in.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate('/');
       })
       .catch(error => {
@@ -28,6 +36,13 @@ const Login = () => {
     CreateUserWithGoogle()
       .then(result => {
         console.log(result.user);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your account has been successfully logged in.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate('/');
       })
       .catch(error => {

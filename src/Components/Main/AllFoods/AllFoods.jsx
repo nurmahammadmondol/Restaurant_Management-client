@@ -6,9 +6,11 @@ import burritoLogo from '../../../assets/Photo/food-burrito-stroke-9a4868.webp';
 import taco from '../../../assets/Photo/file (2).png';
 
 const AllFoods = () => {
+  const LoaderData = useLoaderData();
+
   const [Data, setData] = useState([]);
   const [query, setQuery] = useState('');
-  // console.log(Data);
+
   const [parPageItem, setParPageItem] = useState(4);
   const [CurrentPage, setCurrentPage] = useState(1);
   const [countFoods, setCountFoods] = useState(null);
@@ -18,7 +20,7 @@ const AllFoods = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
+      `https://restaurant-management-server-side-seven.vercel.app/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
     )
       .then(res => res.json())
       .then(data => {
@@ -27,11 +29,7 @@ const AllFoods = () => {
   }, [CurrentPage, parPageItem]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/AllFoodsCount')
-      .then(res => res.json())
-      .then(data => {
-        setCountFoods(data.count);
-      });
+    setCountFoods(LoaderData?.length);
   }, []);
 
   const handleParPagesItems = e => {
@@ -51,7 +49,6 @@ const AllFoods = () => {
       setCurrentPage(CurrentPage + 1);
     }
   };
-  console.log(query);
 
   return (
     <div className="w-11/12 mx-auto my-10 ">
@@ -145,53 +142,60 @@ const AllFoods = () => {
           </div>
         </div>
 
-        <div className="col-span-2 ">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {Data.map(food => (
-              <SingleFoodCard key={food._id} food={food}></SingleFoodCard>
-            ))}
-          </div>
-          <div className="mt-14 flex justify-center items-center gap-3">
-            <div>
-              <select
-                value={parPageItem}
-                onChange={handleParPagesItems}
-                className="btn btn-sm text-orange-500"
-              >
-                <option value="2">2</option>
-                <option value="4">4</option>
-                <option value="6">6</option>
-                <option value="8">8</option>
-                <option value="10">10</option>
-              </select>
+        {Data.length > 0 ? (
+          <div className="col-span-2 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {Data.map(food => (
+                <SingleFoodCard key={food._id} food={food}></SingleFoodCard>
+              ))}
             </div>
-            <button
-              onClick={handlePrePage}
-              className="btn  btn-sm  font-bold text-orange-500"
-            >
-              Pre
-            </button>
-            {Pages.map((page, i) => (
+            <div className="mt-14 flex justify-center items-center gap-3">
+              <div>
+                <select
+                  value={parPageItem}
+                  onChange={handleParPagesItems}
+                  className="btn btn-sm text-orange-500"
+                >
+                  <option value="2">2</option>
+                  <option value="4">4</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                  <option value="10">10</option>
+                </select>
+              </div>
               <button
-                onClick={() => setCurrentPage(page + 1)}
-                key={i}
-                className={`btn btn-sm  font-bold ${
-                  CurrentPage == page + 1
-                    ? 'bg-orange-500 text-white '
-                    : 'text-orange-500'
-                }`}
+                onClick={handlePrePage}
+                className="btn  btn-sm  font-bold text-orange-500"
               >
-                {page + 1}
+                Pre
               </button>
-            ))}
-            <button
-              onClick={handleNextPage}
-              className="btn  btn-sm  font-bold text-orange-500"
-            >
-              Next
-            </button>
+              {Pages.map((page, i) => (
+                <button
+                  onClick={() => setCurrentPage(page + 1)}
+                  key={i}
+                  className={`btn btn-sm  font-bold ${
+                    CurrentPage == page + 1
+                      ? 'bg-orange-500 text-white '
+                      : 'text-orange-500'
+                  }`}
+                >
+                  {page + 1}
+                </button>
+              ))}
+              <button
+                onClick={handleNextPage}
+                className="btn  btn-sm  font-bold text-orange-500"
+              >
+                Next
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className="min-h-screen w-11/12 mx-auto flex flex-col justify-center items-center">
+            <small className="text-center mb-1">Loading...</small>
+            <progress className="progress w-56"></progress>
+          </div>
+        )}
       </div>
     </div>
   );

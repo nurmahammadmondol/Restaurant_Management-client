@@ -57,8 +57,9 @@ const Navbar = () => {
             <div className="drawer-content">
               {/* Page content here */}
               <label htmlFor="my-drawer-4" className="drawer-button  ">
+                {/* photoURL */}
                 <img
-                  className="w-14 h-14 border rounded-full "
+                  className="w-14 h-14 border rounded-full hover:cursor-pointer"
                   src={User?.photoURL}
                   alt=""
                 />

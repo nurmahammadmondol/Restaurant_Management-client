@@ -1,8 +1,10 @@
 import axios from 'axios';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const UpdateFood = () => {
   const LoaderFoodInfo = useLoaderData();
+  const navigate = useNavigate();
 
   const {
     _id,
@@ -36,9 +38,20 @@ const UpdateFood = () => {
 
     // Update server site :
     axios
-      .put(`http://localhost:3000/AllFoods/${_id}`, updateData)
+      .put(
+        `https://restaurant-management-server-side-seven.vercel.app/AllFoods/${_id}`,
+        updateData
+      )
       .then(res => {
         console.log(res.data);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'This food information has been successfully updated.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        navigate(-1);
       })
       .catch(error => {
         console.log('Update fail', error.message);

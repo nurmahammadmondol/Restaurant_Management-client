@@ -3,6 +3,7 @@ import { AuthContent } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { data } from 'autoprefixer';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AddFood = () => {
   const navigate = useNavigate();
@@ -36,10 +37,27 @@ const AddFood = () => {
       Description,
     };
 
-    axios.post('http://localhost:3000/AllFoods', All_Data).then(data => {
-      console.log('success', data.data);
-    });
-    console.log(All_Data);
+    axios
+      .post(
+        'https://restaurant-management-server-side-seven.vercel.app/AllFoods',
+        All_Data
+      )
+      .then(data => {
+        console.log(data.data);
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your new food has been successfully added.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        form.reset();
+      })
+      .catch(error => {
+        console.log(error.message);
+      });
   };
 
   const handleBack = () => {

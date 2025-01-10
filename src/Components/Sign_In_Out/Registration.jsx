@@ -4,6 +4,7 @@ import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../FirebaseProvider/Firebase.config';
+import Swal from 'sweetalert2';
 
 const Registration = () => {
   const { CreateUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
@@ -32,6 +33,13 @@ const Registration = () => {
         updateProfile(auth.currentUser, UserProfile)
           .then(() => {
             console.log('update success');
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Your new account has been successfully created.',
+              showConfirmButton: false,
+              timer: 1500,
+            });
             navigate('/');
           })
           .catch(error => {
@@ -48,6 +56,13 @@ const Registration = () => {
     CreateUserWithGoogle()
       .then(result => {
         console.log(result.user);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Your new account has been successfully created.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate('/');
       })
       .catch(error => {
