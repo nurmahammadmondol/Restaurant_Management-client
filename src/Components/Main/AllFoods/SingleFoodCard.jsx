@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'motion/react';
 
 const SingleFoodCard = ({ food }) => {
   const { _id, FoodName, Price, FoodImage } = food;
 
   return (
-    <div className="card bg-orange-50 w-full shadow-xl p-7">
+    <motion.div
+      className="card bg-orange-50 w-full shadow-xl p-7"
+      data-aos="zoom-in"
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.9 }}
+      transition={{ stiffness: 400, damping: 10 }}
+    >
       <figure className="">
         <img
           src={FoodImage}
@@ -82,7 +89,7 @@ const SingleFoodCard = ({ food }) => {
           </Link>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

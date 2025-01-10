@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 import BannerPizza from '../../assets/Photo/veggie-pizza-banner.png';
 import BurgerImage from '../../assets/Photo/chicken-burger.png';
@@ -22,33 +23,71 @@ const Banner = () => {
             love. Join us for an unforgettable dining experience, where every
             bite delights!
           </p>
-          {/* <div className=" mt-2">
-            <button className="btn">All Items</button>
-          </div> */}
         </div>
         <div className="col-span-2 z-10">
           <img className="w-full md:h-[500px]" src={BannerPizza} alt="" />
         </div>
 
         <div className="hidden  md:grid grid-cols-3 gap-5 ">
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full">
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full"
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={BurgerImage} alt="" />
-          </div>
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full ">
+          </motion.div>
+
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full "
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={pizzaImage} alt="" />
-          </div>
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full">
+          </motion.div>
+
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full"
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={muffinsImage} alt="" />
-          </div>
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full">
+          </motion.div>
+
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full"
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={sandwichImage} alt="" />
-          </div>
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full">
+          </motion.div>
+
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full"
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={FriedChickenImage} alt="" />
-          </div>
-          <div className="w-20 md:w-24 p-1 bg-white rounded-full">
+          </motion.div>
+
+          <motion.div
+            className="w-20 md:w-24 p-1 bg-white rounded-full"
+            data-aos="zoom-in"
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ stiffness: 200, damping: 10 }}
+          >
             <img src={sormaImage} alt="" />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

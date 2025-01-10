@@ -138,11 +138,19 @@ const Details = () => {
       <h4 className="text-2xl  mb-5 bangers-regular-font border-b pb-1">
         Details :
       </h4>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full lg:h-[500px]">
-        <div className="w-full h-full   rounded-2xl p-5 md:p-10 ">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full lg:h-[500px">
+        <div
+          className="w-full h-full   rounded-2xl p-5 md:p-10 "
+          data-aos="fade-right"
+        >
           <img src={FoodImage} alt="" />
         </div>
-        <div className="w-full h-full   rounded-2xl p-3 md:p-5 lg:p-10 space-y-2 lg:space-y-3 py-5 ">
+
+        <div
+          className="w-full h-full   rounded-2xl p-3 md:p-5 lg:p-10 space-y-2 lg:space-y-3 py-5 "
+          data-aos="fade-left"
+        >
           <h3 className="text-2xl md:text-4xl mb-5 bangers-regular-font">
             {FoodName}
           </h3>

@@ -87,8 +87,13 @@ const AllFoods = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 md:gap-10 lg:gap-16 mb-20">
-        <div className="border rounded-xl p-5 mb-5 md:mb-0">
-          <div className="">
+        <div
+          className="border rounded-xl p-5 mb-5 md:mb-0"
+          data-aos="fade-right"
+          data-aos-offset="300"
+          data-aos-easing="ease-in-sine"
+        >
+          <div>
             <h6 className="text-3xl bangers-regular-font mb-3 border-b-2">
               CATEGORIES
             </h6>

@@ -8,7 +8,11 @@ import { Link } from 'react-router-dom';
 const WhyChooseUs = () => {
   return (
     <div className="md:flex gap-5 items-center h-full md:h-[500px] bg-[#fdeddf] my-20 p-10">
-      <div className="w-full md:w-1/2 flex justify-center items-center ">
+      <div
+        className="w-full md:w-1/2 flex justify-center items-center "
+        data-aos="fade-up"
+        data-aos-duration="3000"
+      >
         <img className="h-[420px]" src={FastFoodBoard} alt="" />
       </div>
       <div className="w-full md:w-1/2 space-y-7">
@@ -21,15 +25,17 @@ const WhyChooseUs = () => {
         </p>
 
         <div className="flex gap-3 md:gap-5 font-bold bangers-regular-font">
-          <div className=" w-40">
+          <div className=" w-40" data-aos="zoom-in-left">
             <img className="w-20" src={IconOne} alt="" />
             <small>A new look on the right food!</small>
           </div>
-          <div className=" w-40 ">
+
+          <div className=" w-40 " data-aos="zoom-in-left">
             <img className="w-20" src={IconTwo} alt="" />
             <small className="">the use of natural best quality products</small>
           </div>
-          <div className=" w-40">
+
+          <div className=" w-40" data-aos="zoom-in-left">
             <img className="w-20" src={IconThere} alt="" />
             <small>fastest on your door step</small>
           </div>

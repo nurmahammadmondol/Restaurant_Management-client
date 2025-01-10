@@ -12,7 +12,10 @@ const Title = ({ title, bgi2 }) => {
         opacity: 0.7,
       }}
     >
-      <h4 className="md:text-3xl lg:text-5xl  text-center bangers-regular-font  text-white">
+      <h4
+        className="md:text-3xl lg:text-5xl  text-center bangers-regular-font  text-white"
+        data-aos="zoom-in-up"
+      >
         {title}
       </h4>
     </div>

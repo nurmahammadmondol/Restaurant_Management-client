@@ -41,7 +41,11 @@ const AchievementsAchieved = () => {
             </div>
           </div>
         </div>
-        <div className="hidden md:flex absolute right-0 bottom-0">
+        <div
+          className="hidden md:flex absolute right-0 bottom-0"
+          data-aos="zoom-in-up"
+          data-aos-duration="3000"
+        >
           <img src={pizzaDe} alt="" />
         </div>
       </div>
