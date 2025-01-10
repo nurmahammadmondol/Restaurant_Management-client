@@ -2,8 +2,10 @@ import React, { useContext, useState } from 'react';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import { data } from 'autoprefixer';
+import { useNavigate } from 'react-router-dom';
 
 const AddFood = () => {
+  const navigate = useNavigate();
   const { User } = useContext(AuthContent);
   const [FoodCategory, setFoodCategory] = useState('');
 
@@ -40,8 +42,19 @@ const AddFood = () => {
     console.log(All_Data);
   };
 
+  const handleBack = () => {
+    // console.log('back');
+    navigate(-1);
+  };
+
   return (
-    <div className="w-11/12 mx-auto min-h-screen my-20">
+    <div className="w-11/12 mx-auto min-h-screen my-5">
+      <small
+        onClick={handleBack}
+        className="flex items-center  ml-5 gap-1 rancho-regular "
+      >
+        <i class="fa-solid fa-arrow-left"></i>Back
+      </small>
       <h4 className="text-3xl md:text-5xl font-bold  bangers-regular-font text-center mb-5">
         Add Food Item
       </h4>

@@ -13,6 +13,7 @@ import Details from '../Main/Details/Details';
 import ContactUs from '../Main/ContactUs/ContactUs';
 import AboutUs from '../Main/AboutUs/AboutUs';
 import UpdateFood from '../Main/UpdateFood/UpdateFood';
+import PrivetRoot from '../../PrivetRoot/PrivetRoot';
 
 const Routers = createBrowserRouter([
   {
@@ -35,22 +36,38 @@ const Routers = createBrowserRouter([
 
       {
         path: '/AddFood',
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivetRoot>
+            <AddFood></AddFood>
+          </PrivetRoot>
+        ),
       },
       {
         path: '/UpdateFood/:id',
-        element: <UpdateFood></UpdateFood>,
+        element: (
+          <PrivetRoot>
+            <UpdateFood></UpdateFood>
+          </PrivetRoot>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/AllFoods/${params.id}`),
       },
       {
         path: '/MyFoods',
-        element: <MyFoods></MyFoods>,
+        element: (
+          <PrivetRoot>
+            <MyFoods></MyFoods>
+          </PrivetRoot>
+        ),
         loader: () => fetch('http://localhost:3000/AllFoods'),
       },
       {
         path: '/MyOrders',
-        element: <MyOrders></MyOrders>,
+        element: (
+          <PrivetRoot>
+            <MyOrders></MyOrders>
+          </PrivetRoot>
+        ),
         loader: () => fetch('http://localhost:3000/OrderFoods'),
       },
       {

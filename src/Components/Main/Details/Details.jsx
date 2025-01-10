@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 
 const Details = () => {
+  const navigate = useNavigate();
   const { User } = useContext(AuthContent);
 
   // console.log(User.displayName);
@@ -32,8 +33,8 @@ const Details = () => {
   const OrderFoodInfo = {
     FoodOwnerName: UserName,
     FoodOwnerEmail: UserEmail,
-    OrderUserName: User.displayName,
-    OrderUserEmail: User.email,
+    OrderUserName: User?.displayName,
+    OrderUserEmail: User?.email,
     Date: time,
     FoodImage,
     FoodName,
@@ -63,7 +64,7 @@ const Details = () => {
   };
 
   const handleAddToCart = quantity => {
-    console.log('success');
+    // console.log('success');
     Swal.fire({
       title: 'Would you like to buy this food?',
 
@@ -74,9 +75,9 @@ const Details = () => {
       html: ` <div class="space-y-2 text-start md:ml-5">
 
         <div class="flex flex-col gap-1">
-          <small><i class="fa-regular fa-user mr-1"></i>Buyer Name : <span class="text-xs">${User.displayName}</span></small>
+          <small><i class="fa-regular fa-user mr-1"></i>Buyer Name : <span class="text-xs">${User?.displayName}</span></small>
 
-          <small><i class="fa-regular fa-envelope mr-1"></i>Buyer Email : <span class="text-xs">${User.email}</span></small>
+          <small><i class="fa-regular fa-envelope mr-1"></i>Buyer Email : <span class="text-xs">${User?.email}</span></small>
 
           <small><i class="fa-regular fa-calendar-days mr-1"></i>Date : <span class="text-xs"> ${time}</span></small>
 
@@ -121,10 +122,21 @@ const Details = () => {
     setSize(SizeNumber);
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <div className="w-11/12 lg:w-9/12 mx-auto my-20">
+    <div className="w-11/12 lg:w-9/12 mx-auto my-5">
+      <small
+        onClick={handleBack}
+        className="flex items-center  gap-1 rancho-regular lg:-ml-36 mb-5"
+      >
+        <i class="fa-solid fa-arrow-left"></i>Back
+      </small>
+
       <h4 className="text-2xl  mb-5 bangers-regular-font border-b pb-1">
-        Details <i class="fa-solid fa-arrow-right "></i>
+        Details :
       </h4>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 h-full lg:h-[500px]">
         <div className="w-full h-full   rounded-2xl p-5 md:p-10 ">
@@ -218,12 +230,22 @@ const Details = () => {
               {quantity}
               <button onClick={handleSumQuantity}>+</button>
             </div>
-            <button
-              onClick={() => handleAddToCart(quantity)}
-              className="btn bg-orange-400 text-white flex items-center gap-2 uppercase text-xs font-bold  px-10"
-            >
-              <i class="fa-solid fa-cart-shopping"></i>Buy Now
-            </button>
+
+            {User ? (
+              <button
+                onClick={() => handleAddToCart(quantity)}
+                className="btn bg-orange-400 text-white flex items-center gap-2 uppercase text-xs font-bold  px-10"
+              >
+                <i class="fa-solid fa-cart-shopping"></i>Buy Now
+              </button>
+            ) : (
+              <Link to="/Login">
+                <button className="btn bg-orange-400 text-white flex items-center gap-2 uppercase text-xs font-bold  px-10">
+                  <i class="fa-solid fa-cart-shopping"></i>Buy Now
+                </button>
+              </Link>
+            )}
+
             <div>
               <select
                 onChange={handleChangeSize}

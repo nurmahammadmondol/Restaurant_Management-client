@@ -55,6 +55,10 @@ const Registration = () => {
       });
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div
       className="p-5 min-h-screen flex flex-col "
@@ -65,9 +69,12 @@ const Registration = () => {
       }}
     >
       <div>
-        <h4 className="flex items-center  ml-5 gap-1 rancho-regular ">
+        <small
+          onClick={handleBack}
+          className="flex items-center  ml-5 gap-1 rancho-regular "
+        >
           <i class="fa-solid fa-arrow-left"></i>Back
-        </h4>
+        </small>
       </div>
       <div className="card bg-base-100 w-11/12 md:w-7/12 lg:w-6/12 mx-auto  shrink-0 shadow-2xl my-8">
         <h4 className="text-center text-2xl md:text-3xl lg:text-4xl font-bold mt-5 bangers-regular-font">

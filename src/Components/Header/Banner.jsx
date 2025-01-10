@@ -17,14 +17,14 @@ const Banner = () => {
       <div className="mt-10 grid grid-cols-1 md:grid-cols-4 mx-5 md:mx-10 md:items-center space-y-5 md:space-y-0">
         <div className="">
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae
-            quas nihil neque velit corporis saepe. Maiores ratione, quos laborum
-            doloremque rem iusto? Suscipit accusamus saepe ipsam labore dicta
-            optio voluptate.
+            Welcome to YumYum Bites, where flavor meets quality! Enjoy freshly
+            prepared pizzas, juicy burgers, and delicious meals crafted with
+            love. Join us for an unforgettable dining experience, where every
+            bite delights!
           </p>
-          <div className=" mt-2">
+          {/* <div className=" mt-2">
             <button className="btn">All Items</button>
-          </div>
+          </div> */}
         </div>
         <div className="col-span-2 z-10">
           <img className="w-full md:h-[500px]" src={BannerPizza} alt="" />

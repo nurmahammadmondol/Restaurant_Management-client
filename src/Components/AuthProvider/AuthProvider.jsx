@@ -13,28 +13,34 @@ export const AuthContent = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [User, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const CreateUserWithEmail = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   const LogInUserWithEmail = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   const GoogleProvider = new GoogleAuthProvider();
 
   const CreateUserWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, GoogleProvider);
   };
 
   const LogOutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, User => {
       setUser(User);
+      setLoading(false);
 
       console.log('Your account created successfully', User);
     });
@@ -48,8 +54,9 @@ const AuthProvider = ({ children }) => {
     CreateUserWithEmail,
     LogInUserWithEmail,
     CreateUserWithGoogle,
-    User,
     LogOutUser,
+    User,
+    loading,
   };
 
   return (
