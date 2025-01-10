@@ -12,6 +12,7 @@ import Gallery from '../Main/Gallery/Gallery';
 import Details from '../Main/Details/Details';
 import ContactUs from '../Main/ContactUs/ContactUs';
 import AboutUs from '../Main/AboutUs/AboutUs';
+import UpdateFood from '../Main/UpdateFood/UpdateFood';
 
 const Routers = createBrowserRouter([
   {
@@ -36,7 +37,12 @@ const Routers = createBrowserRouter([
         path: '/AddFood',
         element: <AddFood></AddFood>,
       },
-
+      {
+        path: '/UpdateFood/:id',
+        element: <UpdateFood></UpdateFood>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/AllFoods/${params.id}`),
+      },
       {
         path: '/MyFoods',
         element: <MyFoods></MyFoods>,
@@ -45,6 +51,7 @@ const Routers = createBrowserRouter([
       {
         path: '/MyOrders',
         element: <MyOrders></MyOrders>,
+        loader: () => fetch('http://localhost:3000/OrderFoods'),
       },
       {
         path: '/Details/:id',

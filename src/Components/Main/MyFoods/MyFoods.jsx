@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 
 const MyFoods = () => {
@@ -12,6 +12,9 @@ const MyFoods = () => {
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-16">
+      <h4 className="md:text-3xl mb-5  text-center bangers-regular-font  underline">
+        I added this food.
+      </h4>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -42,9 +45,11 @@ const MyFoods = () => {
                 <td>{myData.Price}</td>
                 <td>{myData.Quantity}</td>
                 <td>
-                  <button className="btn  text-orange-500 text-lg bg-orange-50">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                  </button>
+                  <Link to={`/UpdateFood/${myData._id}`}>
+                    <button className="btn  text-orange-500 text-lg bg-orange-50">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}

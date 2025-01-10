@@ -1,23 +1,46 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContent } from '../../AuthProvider/AuthProvider';
 
 const Details = () => {
+  const { User } = useContext(AuthContent);
+
+  // console.log(User.displayName);
+  // console.log(User.email);
   const LoaderDataDetails = useLoaderData();
   const [quantity, setQuantity] = useState(1);
   const [Size, setSize] = useState(6);
+  const [time, setTime] = useState(null);
+
+  useEffect(() => {
+    const Time = new Date().toLocaleString();
+    setTime(Time);
+  }, []);
 
   const {
-    _id,
     UserName,
     UserEmail,
     FoodName,
     Price,
     Quantity,
     FoodImage,
-    FoodCategory,
     Description,
   } = LoaderDataDetails;
+
+  const OrderFoodInfo = {
+    FoodOwnerName: UserName,
+    FoodOwnerEmail: UserEmail,
+    OrderUserName: User.displayName,
+    OrderUserEmail: User.email,
+    Date: time,
+    FoodImage,
+    FoodName,
+    Price,
+    quantity,
+    Size,
+  };
 
   const str = Description;
   const words = str.split(' ');
@@ -48,22 +71,47 @@ const Details = () => {
       cancelButtonColor: '#d11919',
       confirmButtonColor: '#eba75f',
       confirmButtonText: 'Yes, Buy Now ',
-      html: ` <div class="flex justify-center gap-10  font-bold">
-          <small><i class="fa-brands fa-intercom mr-1"></i></i>Quantity : ${quantity}</small>
+      html: ` <div class="space-y-2 text-start md:ml-5">
+
+        <div class="flex flex-col gap-1">
+          <small><i class="fa-regular fa-user mr-1"></i>Buyer Name : <span class="text-xs">${User.displayName}</span></small>
+
+          <small><i class="fa-regular fa-envelope mr-1"></i>Buyer Email : <span class="text-xs">${User.email}</span></small>
+
+          <small><i class="fa-regular fa-calendar-days mr-1"></i>Date : <span class="text-xs"> ${time}</span></small>
+
+         
+         
+        </div>
+
+          
+          <small class="mr-3"><i class="fa-brands fa-intercom mr-1"></i></i>Quantity : ${quantity}</small>
           <small><i class="fa-brands fa-slack mr-1"></i>Size : ${Size}"</small>
+         
+
+        
         </div>`,
-      imageUrl: `${FoodImage}`, // Add your image here
-      imageWidth: 100, // Adjust width of the image
-      imageHeight: 100, // Adjust height of the image
-      imageAlt: 'Custom Image', // Alt text for the image
+      imageUrl: `${FoodImage}`,
+      imageWidth: 100,
+      imageHeight: 100,
+      imageAlt: 'Custom Image',
     }).then(result => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: 'Success!',
-          text: 'Your food has been ordered successfully..',
-          icon: 'success',
-          confirmButtonColor: '#eba75f',
-        });
+        // console.log(OrderFoodInfo);
+        axios
+          .post('http://localhost:3000/OrderFoods', OrderFoodInfo)
+          .then(res => {
+            console.log(res.data);
+            Swal.fire({
+              title: 'Success!',
+              text: 'Your food has been ordered successfully..',
+              icon: 'success',
+              confirmButtonColor: '#eba75f',
+            });
+          })
+          .catch(error => {
+            console.log(error.message);
+          });
       }
     });
   };

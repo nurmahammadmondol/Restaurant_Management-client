@@ -55,9 +55,11 @@ const AllFoods = () => {
 
   return (
     <div className="w-11/12 mx-auto my-10 ">
-      <div className="mb-20">
-        <div className="w-full h-[50px] border-b-2  flex justify-between items-center py-5 px-1">
-          <h4 className="text-lg  font-bold">All the food is on this page :</h4>
+      <div className="mb-10 md:mb-20">
+        <div className="w-full  border-b-2  md:flex justify-between items-center py-2 px-1">
+          <h4 className=" md:text-2xl  font-bold mb-2 md:mb-0">
+            All the food is on this page :
+          </h4>
           <div>
             <label className="input bg-slate-50 flex items-center gap-2 px-5">
               <input

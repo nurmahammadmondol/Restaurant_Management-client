@@ -1,12 +1,21 @@
 import React from 'react';
 import Images from './Images';
+import Title from '../TitlePage/Title';
+import bgi2 from '../../../assets/Photo/ai-generated-.jpg';
 
 const Gallery = () => {
   return (
-    <div className="my-20 w-11/12 md:w-10/12 mx-auto">
-      <h5 className="md:text-3xl font-bold bangers-regular-font mb-3 md:mb-10">
+    <div className="my-10 w-11/12 md:w-10/12 mx-auto">
+      <div className="mb-14 md:mb-20">
+        <Title
+          title={`Pictures of food available at our restaurant`}
+          bgi2={bgi2}
+        ></Title>
+      </div>
+
+      {/* <h5 className="md:text-3xl font-bold bangers-regular-font mb-3 md:mb-10">
         Pictures of food available at our restaurant
-      </h5>
+      </h5> */}
 
       <div>
         <Images></Images>

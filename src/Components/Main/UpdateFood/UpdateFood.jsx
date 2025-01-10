@@ -1,31 +1,31 @@
-import React, { useContext, useState } from 'react';
-import { AuthContent } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
-import { data } from 'autoprefixer';
+import { useLoaderData } from 'react-router-dom';
 
-const AddFood = () => {
-  const { User } = useContext(AuthContent);
-  const [FoodCategory, setFoodCategory] = useState('');
+const UpdateFood = () => {
+  const LoaderFoodInfo = useLoaderData();
 
-  const handleFoodCategoryName = e => {
-    setFoodCategory(e.target.value);
-  };
+  const {
+    _id,
+    FoodName,
+    Price,
+    Quantity,
+    FoodImage,
+    FoodCategory,
+    Description,
+  } = LoaderFoodInfo;
+  // console.log(LoaderFoodInfo);
 
-  const handleSubmitAddFoodForm = e => {
+  const handleUpdateForm = e => {
     e.preventDefault();
-
     const form = e.target;
-    const UserName = form.UserName.value;
-    const UserEmail = form.UserEmail.value;
     const FoodName = form.FoodName.value;
     const Price = form.Price.value;
-    const Quantity = form.quantity.value;
+    const Quantity = form.Quantity.value;
     const FoodImage = form.FoodImage.value;
+    const FoodCategory = form.FoodCategory.value;
     const Description = form.Description.value;
 
-    const All_Data = {
-      UserName,
-      UserEmail,
+    const updateData = {
       FoodName,
       Price,
       Quantity,
@@ -34,47 +34,26 @@ const AddFood = () => {
       Description,
     };
 
-    axios.post('http://localhost:3000/AllFoods', All_Data).then(data => {
-      console.log('success', data.data);
-    });
-    console.log(All_Data);
+    // Update server site :
+    axios
+      .put(`http://localhost:3000/AllFoods/${_id}`, updateData)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(error => {
+        console.log('Update fail', error.message);
+      });
   };
 
   return (
     <div className="w-11/12 mx-auto min-h-screen my-20">
       <h4 className="text-3xl md:text-5xl font-bold  bangers-regular-font text-center mb-5">
-        Add Food Item
+        Update This Food
       </h4>
       <form
-        onSubmit={handleSubmitAddFoodForm}
+        onSubmit={handleUpdateForm}
         className="card-body flex flex-col gap-3"
       >
-        <div className="md:flex gap-5 clear-start w-full mb-1 ">
-          <label className="form-control w-full md:w-1/2 mb-2 md:mb-0">
-            <div className="label">
-              <span className="label-text font-bold">Add By User Name</span>
-            </div>
-            <input
-              type="text"
-              className="input  w-full  bg-slate-50"
-              value={User?.displayName}
-              name="UserName"
-            />
-          </label>
-
-          <label className="form-control w-full md:w-1/2">
-            <div className="label">
-              <span className="label-text font-bold">Add By User Email</span>
-            </div>
-            <input
-              type="text"
-              className="input  w-full bg-slate-50"
-              value={User?.email}
-              name="UserEmail"
-            />
-          </label>
-        </div>
-
         <div className="md:flex gap-5 clear-start w-full mb-1 ">
           <label className="form-control w-full md:w-1/2 mb-2 md:mb-0">
             <div className="label">
@@ -83,33 +62,23 @@ const AddFood = () => {
             <input
               type="text"
               placeholder="Enter food name"
+              defaultValue={FoodName}
               className="input  w-full  bg-slate-50"
               name="FoodName"
             />
           </label>
 
-          <label className="form-control w-full md:w-1/2 m">
+          <label className="form-control w-full md:w-1/2 mb-2 md:mb-0">
             <div className="label">
-              <span className="label-text font-bold">Food Category</span>
+              <span className="label-text  font-bold">Food Category</span>
             </div>
-
-            <select
-              className="select w-full bg-slate-50 "
-              value={FoodCategory}
-              onChange={handleFoodCategoryName}
-            >
-              <option value="" disabled>
-                Select food category
-              </option>
-              <option value="Burger">Burger</option>
-              <option value="Pizza">Pizza</option>
-              <option value="Sandwich">Sandwich</option>
-              <option value="Milkshake">Milkshake</option>
-              <option value="Muffin">Muffin</option>
-              <option value="Burrito">Burrito</option>
-              <option value="Taco">Taco</option>
-              <option value="Soft Drink">Soft Drink</option>
-            </select>
+            <input
+              type="text"
+              placeholder="Enter food name"
+              defaultValue={FoodCategory}
+              className="input  w-full  bg-slate-50"
+              name="FoodCategory"
+            />
           </label>
         </div>
 
@@ -121,6 +90,7 @@ const AddFood = () => {
             <input
               type="text"
               placeholder="Enter price"
+              defaultValue={Price}
               className="input  w-full  bg-slate-50"
               name="Price"
             />
@@ -133,8 +103,9 @@ const AddFood = () => {
             <input
               type="text"
               placeholder="Enter quantity"
+              defaultValue={Quantity}
               className="input  w-full bg-slate-50"
-              name="quantity"
+              name="Quantity"
             />
           </label>
         </div>
@@ -147,6 +118,7 @@ const AddFood = () => {
             <input
               type="text"
               placeholder="Enter food photo URL"
+              defaultValue={FoodImage}
               className="input  w-full bg-slate-50"
               name="FoodImage"
             />
@@ -160,6 +132,7 @@ const AddFood = () => {
             </div>
             <textarea
               className="textarea  w-full bg-slate-50"
+              defaultValue={Description}
               placeholder="Enter describe it in at least 20 words."
               name="Description"
             ></textarea>
@@ -168,7 +141,7 @@ const AddFood = () => {
 
         <div className="form-control mt-6">
           <button className="btn bg-[#E69138] text-white font-bold ">
-            Add New Food
+            Update Food
           </button>
         </div>
       </form>
@@ -176,4 +149,4 @@ const AddFood = () => {
   );
 };
 
-export default AddFood;
+export default UpdateFood;
