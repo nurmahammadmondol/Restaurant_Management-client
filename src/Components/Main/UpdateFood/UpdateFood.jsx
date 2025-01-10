@@ -38,10 +38,7 @@ const UpdateFood = () => {
 
     // Update server site :
     axios
-      .put(
-        `https://restaurant-management-server-side-seven.vercel.app/AllFoods/${_id}`,
-        updateData
-      )
+      .put(`http://localhost:3000/AllFoods/${_id}`, updateData)
       .then(res => {
         console.log(res.data);
         Swal.fire({

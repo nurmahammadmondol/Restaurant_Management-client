@@ -7,9 +7,12 @@ import taco from '../../../assets/Photo/file (2).png';
 
 const AllFoods = () => {
   const LoaderData = useLoaderData();
+  console.log(parseInt(LoaderData?.length));
 
   const [Data, setData] = useState([]);
-  const [query, setQuery] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
+
+  console.log(searchTerm);
 
   const [parPageItem, setParPageItem] = useState(4);
   const [CurrentPage, setCurrentPage] = useState(1);
@@ -20,7 +23,7 @@ const AllFoods = () => {
 
   useEffect(() => {
     fetch(
-      `https://restaurant-management-server-side-seven.vercel.app/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
+      `http://localhost:3000/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
     )
       .then(res => res.json())
       .then(data => {
@@ -50,6 +53,17 @@ const AllFoods = () => {
     }
   };
 
+  const handleSearch = event => {
+    setSearchTerm(event.target.value.toLowerCase());
+
+    const filteredItems = Data.filter(item =>
+      item.FoodName.toLowerCase().includes(searchTerm)
+    );
+
+    setData(filteredItems);
+    setParPageItem(LoaderData?.length);
+  };
+
   return (
     <div className="w-11/12 mx-auto my-10 ">
       <div className="mb-10 md:mb-20">
@@ -60,8 +74,8 @@ const AllFoods = () => {
           <div>
             <label className="input bg-slate-50 flex items-center gap-2 px-5">
               <input
-                value={query}
-                onChange={e => setQuery(e.target.value)}
+                value={searchTerm}
+                onChange={handleSearch}
                 type="text"
                 className="grow "
                 placeholder="Search"
@@ -156,6 +170,7 @@ const AllFoods = () => {
                   onChange={handleParPagesItems}
                   className="btn btn-sm text-orange-500"
                 >
+                  <option disabled>{parPageItem}</option>
                   <option value="2">2</option>
                   <option value="4">4</option>
                   <option value="6">6</option>

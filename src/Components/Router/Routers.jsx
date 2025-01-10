@@ -28,10 +28,7 @@ const Routers = createBrowserRouter([
       {
         path: '/AllFoods',
         element: <AllFoods></AllFoods>,
-        loader: () =>
-          fetch(
-            'https://restaurant-management-server-side-seven.vercel.app/AllFoods'
-          ),
+        loader: () => fetch('http://localhost:3000/AllFoods'),
       },
       {
         path: '/Gallery',
@@ -54,9 +51,7 @@ const Routers = createBrowserRouter([
           </PrivetRoot>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://restaurant-management-server-side-seven.vercel.app/AllFoods/${params.id}`
-          ),
+          fetch(`http://localhost:3000/AllFoods/${params.id}`),
       },
       {
         path: '/MyFoods',
@@ -65,10 +60,7 @@ const Routers = createBrowserRouter([
             <MyFoods></MyFoods>
           </PrivetRoot>
         ),
-        loader: () =>
-          fetch(
-            'https://restaurant-management-server-side-seven.vercel.app/AllFoods'
-          ),
+        loader: () => fetch('http://localhost:3000/AllFoods'),
       },
       {
         path: '/MyOrders',
@@ -77,18 +69,13 @@ const Routers = createBrowserRouter([
             <MyOrders></MyOrders>
           </PrivetRoot>
         ),
-        loader: () =>
-          fetch(
-            'https://restaurant-management-server-side-seven.vercel.app/OrderFoods'
-          ),
+        loader: () => fetch('http://localhost:3000/OrderFoods'),
       },
       {
         path: '/Details/:id',
         element: <Details></Details>,
         loader: ({ params }) =>
-          fetch(
-            `https://restaurant-management-server-side-seven.vercel.app/AllFoods/${params.id}`
-          ),
+          fetch(`http://localhost:3000/AllFoods/${params.id}`),
       },
       {
         path: '/AboutUs',

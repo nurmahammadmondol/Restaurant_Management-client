@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
+import { motion } from 'framer-motion';
 
 const MyFoods = () => {
   const { User } = useContext(AuthContent);
@@ -9,6 +10,15 @@ const MyFoods = () => {
   const [Data, setData] = useState(LoaderAllData);
 
   const myAddData = Data.filter(data => data?.UserEmail == User?.email);
+
+  const tableVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: i => ({
+      opacity: 1,
+      x: 0,
+      transition: { delay: i * 0.2 },
+    }),
+  };
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-16">
@@ -31,7 +41,13 @@ const MyFoods = () => {
             </thead>
             <tbody>
               {myAddData.map((myData, inx) => (
-                <tr>
+                <motion.tr
+                  key={myData._id}
+                  custom={inx}
+                  initial="hidden"
+                  animate="visible"
+                  variants={tableVariants}
+                >
                   <td>{inx + 1}</td>
                   <td className="flex items-center gap-2">
                     <img
@@ -51,7 +67,7 @@ const MyFoods = () => {
                       </button>
                     </Link>
                   </td>
-                </tr>
+                </motion.tr>
               ))}
             </tbody>
           </table>

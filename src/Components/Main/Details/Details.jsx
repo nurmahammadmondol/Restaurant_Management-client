@@ -100,10 +100,7 @@ const Details = () => {
       if (result.isConfirmed) {
         // console.log(OrderFoodInfo);
         axios
-          .post(
-            'https://restaurant-management-server-side-seven.vercel.app/OrderFoods',
-            OrderFoodInfo
-          )
+          .post('http://localhost:3000/OrderFoods', OrderFoodInfo)
           .then(res => {
             console.log(res.data);
             Swal.fire({
