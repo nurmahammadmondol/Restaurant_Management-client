@@ -48,7 +48,7 @@ const Navbar = () => {
         </a>
       </div>
       <div className="hidden lg:flex ">
-        <ul className="menu menu-horizontal px-1">{Links}</ul>
+        <ul className="menu menu-vertical px-1">{Links}</ul>
       </div>
       <div className="">
         {User && (

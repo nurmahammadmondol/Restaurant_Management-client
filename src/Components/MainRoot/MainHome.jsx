@@ -4,6 +4,7 @@ import MarquSlider from '../Header/MarquSlider';
 import OurBestCategories from '../Main/BestCategories/OurBestCategories';
 import AchievementsAchieved from '../Main/Achievements/AchievementsAchieved';
 import WhyChooseUs from '../Main/WhyChooseUs/WhyChooseUs';
+import BestSellingDishes from '../Main/BestSelling/BestSellingDishes';
 
 const MainHome = () => {
   return (
@@ -15,6 +16,11 @@ const MainHome = () => {
       <div>
         <OurBestCategories></OurBestCategories>
       </div>
+
+      <div className="my-20">
+        <BestSellingDishes></BestSellingDishes>
+      </div>
+
       <div>
         <AchievementsAchieved></AchievementsAchieved>
       </div>
