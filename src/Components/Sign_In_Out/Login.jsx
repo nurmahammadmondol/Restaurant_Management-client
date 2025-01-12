@@ -1,12 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const { LogInUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
   const navigate = useNavigate();
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const handleLogInUser = e => {
     e.preventDefault();
@@ -29,6 +31,14 @@ const Login = () => {
       })
       .catch(error => {
         console.log(error);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'question',
+          title: 'Your password is incorrect',
+          text: 'Please enter the correct password ?',
+          showConfirmButton: false,
+          timer: 3000,
+        });
       });
   };
 
@@ -63,6 +73,10 @@ const Login = () => {
         backgroundPosition: 'center',
       }}
     >
+      <Helmet>
+        <title>YumYum Bites | Login</title>
+      </Helmet>
+
       <div>
         <small
           onClick={handleBack}
@@ -89,17 +103,30 @@ const Login = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type={passwordShow ? 'text' : 'password'}
               placeholder="Password"
               name="password"
               className="input input-bordered"
               required
             />
+
+            <div className="absolute right-3 bottom-11">
+              {passwordShow ? (
+                <small onClick={() => setPasswordShow(false)}>
+                  <i class="fa-solid fa-eye-slash"></i>
+                </small>
+              ) : (
+                <small onClick={() => setPasswordShow(true)}>
+                  <i class="fa-solid fa-eye"></i>
+                </small>
+              )}
+            </div>
+
             <label className="label">
               <a href="#" className="label-text-alt link link-hover">
                 Forgot password?

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import ContactUsBGImage from '../../../assets/Photo/bgContactUS.jpg';
+import { Helmet } from 'react-helmet';
 
 const ContactUs = () => {
   return (
@@ -13,6 +14,10 @@ const ContactUs = () => {
         backgroundPosition: 'center',
       }}
     >
+      <Helmet>
+        <title>YumYum Bites | Contact US</title>
+      </Helmet>
+
       {/* Overlay div */}
       <div
         className="absolute inset-0 bg-gray-500 bg-opacity-50"

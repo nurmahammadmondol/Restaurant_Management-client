@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 const MyFoods = () => {
   const { User } = useContext(AuthContent);
@@ -22,6 +23,10 @@ const MyFoods = () => {
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-16">
+      <Helmet>
+        <title>YumYum Bites | My Foods</title>
+      </Helmet>
+
       <h4 className="md:text-3xl mb-5  text-center bangers-regular-font  underline">
         I added this food
       </h4>

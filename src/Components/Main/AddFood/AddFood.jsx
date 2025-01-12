@@ -4,6 +4,7 @@ import axios from 'axios';
 import { data } from 'autoprefixer';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const AddFood = () => {
   const navigate = useNavigate();
@@ -67,6 +68,9 @@ const AddFood = () => {
 
   return (
     <div className="w-11/12 mx-auto min-h-screen my-5">
+      <Helmet>
+        <title>YumYum Bites | Add Food</title>
+      </Helmet>
       <small
         onClick={handleBack}
         className="flex items-center  ml-5 gap-1 rancho-regular "

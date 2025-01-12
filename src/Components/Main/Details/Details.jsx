@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
+import { Helmet } from 'react-helmet';
 
 const Details = () => {
   const navigate = useNavigate();
@@ -131,6 +132,10 @@ const Details = () => {
 
   return (
     <div className="w-11/12 lg:w-9/12 mx-auto my-5">
+      <Helmet>
+        <title>YumYum Bites | Details</title>
+      </Helmet>
+
       <small
         onClick={handleBack}
         className="flex items-center  gap-1 rancho-regular lg:-ml-36 mb-5"

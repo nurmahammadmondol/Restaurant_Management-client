@@ -4,6 +4,7 @@ import { AuthContent } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 const MyOrders = () => {
   const { User } = useContext(AuthContent);
@@ -64,6 +65,10 @@ const MyOrders = () => {
 
   return (
     <div className="w-11/12 md:w-10/12 mx-auto my-16">
+      <Helmet>
+        <title>YumYum Bites | My Orders</title>
+      </Helmet>
+
       <h4 className="md:text-3xl mb-5  text-center bangers-regular-font  underline">
         My Orders Food
       </h4>

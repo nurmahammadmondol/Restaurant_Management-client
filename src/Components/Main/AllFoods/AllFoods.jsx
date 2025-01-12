@@ -4,6 +4,7 @@ import SingleFoodCard from './SingleFoodCard';
 import muffinLogo from '../../../assets/Photo/muffin_PNG24.png';
 import burritoLogo from '../../../assets/Photo/food-burrito-stroke-9a4868.webp';
 import taco from '../../../assets/Photo/file (2).png';
+import { Helmet } from 'react-helmet';
 
 const AllFoods = () => {
   const LoaderData = useLoaderData();
@@ -66,6 +67,9 @@ const AllFoods = () => {
 
   return (
     <div className="w-11/12 mx-auto my-10 ">
+      <Helmet>
+        <title>YumYum Bites | All Foods</title>
+      </Helmet>
       <div className="mb-10 md:mb-20">
         <div className="w-full  border-b-2  md:flex justify-between items-center py-2 px-1">
           <h4 className=" md:text-2xl  font-bold mb-2 md:mb-0">

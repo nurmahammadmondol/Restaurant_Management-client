@@ -9,7 +9,7 @@ const Navbar = () => {
   const Links = (
     <div className="md:flex items-center gap-3 md:gap-7 md:text-lg font-semibold">
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/AllFoods">All Foods</NavLink>
+      <NavLink to="/AllFoods">Foods</NavLink>
       <NavLink to="/Gallery">Gallery</NavLink>
       <NavLink to="/AboutUs">About</NavLink>
       <NavLink to="/ContactUs">Contact US</NavLink>

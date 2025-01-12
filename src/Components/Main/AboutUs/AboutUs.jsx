@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 
 const AboutUs = () => {
   return (
     <div className="my-16 w-11/12 md:w-10/12 mx-auto  md:flex gap-10">
+      <Helmet>
+        <title>YumYum Bites | About</title>
+      </Helmet>
       <div className="w-full p-3">
         <h3 className="text-2xl md:text-4xl font-bold mb-2">
           Welcome to <span className="bangers-regular-font">YumYum Bites!</span>

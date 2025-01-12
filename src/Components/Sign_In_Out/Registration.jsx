@@ -5,11 +5,14 @@ import { AuthContent } from '../AuthProvider/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../FirebaseProvider/Firebase.config';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet';
 
 const Registration = () => {
   const { CreateUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
   const [Error, setError] = useState(null);
   const navigate = useNavigate();
+
+  const [passwordShow, setPasswordShow] = useState(false);
 
   const handleCreateNewUser = e => {
     e.preventDefault();
@@ -24,6 +27,20 @@ const Registration = () => {
       displayName: name,
       photoURL: photo,
     };
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Password validation failed',
+        text: 'Must have an Uppercase letter, a lowercase letter, Length must be at least 6 character ?',
+        showConfirmButton: false,
+        timer: 3000,
+      });
+      return;
+    }
 
     CreateUserWithEmail(email, password)
       .then(result => {
@@ -83,6 +100,10 @@ const Registration = () => {
         backgroundPosition: 'center',
       }}
     >
+      <Helmet>
+        <title>YumYum Bites | Registration</title>
+      </Helmet>
+
       <div>
         <small
           onClick={handleBack}
@@ -123,17 +144,28 @@ const Registration = () => {
             />
           </div>
 
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text">Password</span>
             </label>
             <input
-              type="password"
+              type={passwordShow ? 'text' : 'password'}
               placeholder="Password"
               name="password"
               className="input input-bordered"
               required
             />
+            <div className="absolute right-3 bottom-3">
+              {passwordShow ? (
+                <small onClick={() => setPasswordShow(false)}>
+                  <i class="fa-solid fa-eye-slash"></i>
+                </small>
+              ) : (
+                <small onClick={() => setPasswordShow(true)}>
+                  <i class="fa-solid fa-eye"></i>
+                </small>
+              )}
+            </div>
           </div>
 
           <div className="form-control">
