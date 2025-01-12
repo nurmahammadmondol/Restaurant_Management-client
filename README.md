@@ -1,6 +1,6 @@
 # Yum Yum Bites: A Food-Based Web Application
 
-### Live Site: Yum Yum Bites Live
+### Live Site: [Yum Yum Bites Live](https://stellular-frangipane-a504ed.netlify.app/)
 
 ### Server Site:
 
@@ -11,93 +11,95 @@ browse, add, update, and order food items. With a user-friendly interface,
 robust authentication system, and private routes for personalized experiences,
 this platform enhances the online food ordering experience.
 
-# Key Features
+### Key Features
 
-User Authentication: Email/password-based login/register with Google login
-option. Conditional navbar buttons based on login state.
+- User Authentication: Email/password-based login/register with Google login
+  option. Conditional navbar buttons based on login state.
 
-Private Routes: Add Food, My Foods, My Orders, and Food Purchase pages are
-restricted to authenticated users only.
+- Private Routes: Add Food, My Foods, My Orders, and Food Purchase pages are
+  restricted to authenticated users only.
 
-Food Management: Users can add, view, update, or delete their own added food
-items.
+- Food Management: Users can add, view, update, or delete their own added food
+  items.
 
-Order Management: Users can order food items and view their orders with purchase
-date and time.
+- Order Management: Users can order food items and view their orders with
+  purchase date and time.
 
-Responsive Design: Fully responsive layout for mobile, tablet, and desktop
-views.
+- Responsive Design: Fully responsive layout for mobile, tablet, and desktop
+  views.
 
-Search Functionality: Search food items by name on the All Foods page.
+- Search Functionality: Search food items by name on the All Foods page.
 
-Real-Time Updates: Quantity validation ensures users cannot purchase more than
-available stock.
+- Real-Time Updates: Quantity validation ensures users cannot purchase more than
+  available stock.
 
-Pages Overview
+- Pages Overview
 
-Navbar
+- Navbar
 
-Displays the website logo and navigation links for Home, All Foods, Gallery, Add
-Food, My Foods, and My Orders.
+- Displays the website logo and navigation links for Home, All Foods, Gallery,
+  Add Food, My Foods, and My Orders.
 
-Conditional rendering of login/register buttons or user profile with a logout
-option.
+- Conditional rendering of login/register buttons or user profile with a logout
+  option.
 
-# Home Page (Public)
+### Home Page (Public)
 
-Includes a banner with a heading, short description, and a button redirecting to
-the All Foods page.
+- Includes a banner with a heading, short description, and a button redirecting
+  to the All Foods page.
 
-Top Foods section displaying the 6 top-selling food items.
+- Top Foods section displaying the 6 top-selling food items.
 
-Additional two attractive sections for user engagement.
+- Additional two attractive sections for user engagement.
 
-# All Foods Page (Public)
+### All Foods Page (Public)
 
-Displays all food items stored in the database.
+- Displays all food items stored in the database.
 
-Includes a search bar to filter food items by name.
+- Includes a search bar to filter food items by name.
 
-Each food card displays essential information and a "View Details" button.
+- Each food card displays essential information and a "View Details" button.
 
-# Single Food Page (Public)
+### Single Food Page (Public)
 
-Shows detailed information about a single food item, including the purchase
-count.
+- Shows detailed information about a single food item, including the purchase
+  count.
 
-A purchase button redirects users to the Food Purchase page.
+- A purchase button redirects users to the Food Purchase page.
 
-# Food Purchase Page (Private)
+### Food Purchase Page (Private)
 
-Contains a form with fields: Food Name, Price, Quantity, Buyer Name (read-only),
-Buyer Email (read-only), and Buying Date (auto-generated).
+- Contains a form with fields: Food Name, Price, Quantity, Buyer Name
+  (read-only),
+- Buyer Email (read-only), and Buying Date (auto-generated).
 
-On successful order placement, the information is stored in the database, and a
-toast notification is displayed.
+- On successful order placement, the information is stored in the database, and
+  a
+- t\* oast notification is displayed.
 
-# Gallery Page (Public)
+### Gallery Page (Public)
 
-Displays at least 10 static images in a gallery format.
+- Displays at least 10 static images in a gallery format.
 
-Clicking on an image opens a lightbox for a larger view.
+- Clicking on an image opens a lightbox for a larger view.
 
-# My Foods Page (Private)
+### My Foods Page (Private)
 
-Displays all food items added by the logged-in user.
+- Displays all food items added by the logged-in user.
 
-Includes an update button/icon to edit food details.
+- Includes an update button/icon to edit food details.
 
 Users can delete their own added food items.
 
-# Add Food Page (Private)
+### Add Food Page (Private)
 
-A form for adding new food items with fields: Food Name, Food Image, Category,
-Quantity, Price, Added By (auto-filled with logged-in user’s name and email),
-Food Origin, and a short description.
+- A form for adding new food items with fields: Food Name, Food Image, Category,
+  Quantity, Price, Added By (auto-filled with logged-in user’s name and email),
+  Food Origin, and a short description.
 
-On successful addition, a toast notification is displayed.
+- On successful addition, a toast notification is displayed.
 
-# My Orders Page (Private)
+### My Orders Page (Private)
 
 Displays all food items ordered by the logged-in user.
 
@@ -109,14 +111,14 @@ The delete button allows users to remove orders from the list.
 
 A custom 404 page with navigation back to the homepage for non-existing routes.
 
-# Technologies Used
+### Technologies Used
 
-Frontend: React.js, Tailwind CSS
+- Frontend: React.js, Tailwind CSS
 
-Backend: Node.js, Express.js
+- Backend: Node.js, Express.js
 
-Database: MongoDB
+- Database: MongoDB
 
-Authentication: Firebase Authentication
+- Authentication: Firebase Authentication
 
-Hosting: Netlify (Frontend), Vercel (Backend)
+- Hosting: Netlify (Frontend), Vercel (Backend)
