@@ -23,21 +23,21 @@ const AchievementsAchieved = () => {
               <div className="stat-figure"></div>
               <div className="">Total Likes</div>
               <div className="stat-value ">25.6K</div>
-              <div className="">21% more than last month</div>
+              <div className="text-xs md:text-lg">21% more than last month</div>
             </div>
 
             <div className="border-x-2 border-white px-5">
               <div className=""></div>
               <div className="">Page Views</div>
               <div className="stat-value ">2.6M</div>
-              <div className="">21% more than last month</div>
+              <div className="text-xs md:text-lg">21% more than last month</div>
             </div>
 
             <div className="">
               <div className=""></div>
               <div className="stat-value">86%</div>
               <div className="">Tasks done</div>
-              <div className="">31 tasks remaining</div>
+              <div className="text-xs md:text-lg">31 tasks remaining</div>
             </div>
           </div>
         </div>

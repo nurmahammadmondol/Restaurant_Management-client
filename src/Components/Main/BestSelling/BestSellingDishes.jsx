@@ -9,7 +9,9 @@ const BestSellingDishes = () => {
   const [BestSellingDishes, setBestSellingDishes] = useState([]); // Correct state initialization
 
   useEffect(() => {
-    fetch('http://localhost:3000/OrderFoods')
+    fetch(
+      'https://restaurant-management-server-side-seven.vercel.app/OrderFoods'
+    )
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -60,7 +62,7 @@ const BestSellingDishes = () => {
               {BestSellingDishes.map((Dishes, index) => (
                 <SwiperSlide
                   key={Dishes._id}
-                  className={`w-[200px] bg-orange-200 border rounded-tl-3xl rounded-br-3xl  ${
+                  className={`w-[200px] bg-orange-300 border rounded-tl-3xl rounded-br-3xl  ${
                     index === 0 ? 'first-slide' : ''
                   } ${
                     index === BestSellingDishes.length - 1 ? 'last-slide' : ''
@@ -68,8 +70,8 @@ const BestSellingDishes = () => {
                 >
                   <img
                     src={Dishes.FoodImage}
-                    alt={Dishes.FoodName} // Optionally use the FoodName if available
-                    className="h-[400px] w-full object-cover rounded-lg"
+                    alt={Dishes.FoodName}
+                    className="h-[400px] w-full object-cover"
                   />
                   <h4 className="m-1 text-sm font-bold">{Dishes.FoodName}</h4>
                 </SwiperSlide>

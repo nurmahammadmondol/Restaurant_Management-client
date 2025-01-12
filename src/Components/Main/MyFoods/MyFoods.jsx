@@ -51,7 +51,7 @@ const MyFoods = () => {
                   <td>{inx + 1}</td>
                   <td className="flex items-center gap-2">
                     <img
-                      className="w-10 border rounded-full"
+                      className="w-10 h-10 border rounded-full"
                       src={myData.FoodImage}
                       alt=""
                     />

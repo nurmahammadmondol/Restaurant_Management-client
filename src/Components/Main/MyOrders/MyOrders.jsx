@@ -30,7 +30,9 @@ const MyOrders = () => {
     }).then(result => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/OrderFoods/${ID}`)
+          .delete(
+            `https://restaurant-management-server-side-seven.vercel.app/OrderFoods/${ID}`
+          )
           .then(() => {
             console.log('success delete');
             const FilterRemoveFoods = OrderUserFood.filter(
@@ -93,7 +95,7 @@ const MyOrders = () => {
                 >
                   <td>
                     <img
-                      className="w-12 md:w-14 lg:w-20 border rounded-full"
+                      className="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 border rounded-full"
                       src={myOrder.FoodImage}
                       alt=""
                     />
