@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import BG from '../../assets/Photo/bg.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
@@ -10,6 +10,10 @@ import LottieLogin from '../../assets/Lottie/Animation - Login.json';
 const Login = () => {
   const { LogInUserWithEmail, CreateUserWithGoogle } = useContext(AuthContent);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  let from = location.state?.from?.pathname || '/';
+
   const [passwordShow, setPasswordShow] = useState(false);
 
   const handleLogInUser = e => {
@@ -29,7 +33,7 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate('/');
+        navigate(from, { replace: true });
       })
       .catch(error => {
         console.log(error);

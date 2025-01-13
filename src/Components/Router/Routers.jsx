@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Home from '../Home/Home';
 import MainHome from '../MainRoot/MainHome';
 import Login from '../Sign_In_Out/Login';

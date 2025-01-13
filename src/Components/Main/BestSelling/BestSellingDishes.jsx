@@ -14,7 +14,7 @@ const BestSellingDishes = () => {
     )
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setBestSellingDishes(data);
       });
   }, []);
