@@ -11,7 +11,7 @@ const AchievementsAchieved = () => {
         backgroundPosition: 'center',
         opacity: 0.7,
       }}
-      className="h-full md:h-[230px] w-11/12 md:w-10/12 lg:w-9/12 mx-auto rounded-lg relative p-3 md:p-8 mt-44"
+      className="h-full md:h-[230px] w-11/12 md:w-10/12 lg:w-9/12 mx-auto rounded-lg relative p-3 md:p-8 mt-44 mb-20"
     >
       <div className="">
         <h3 className="text-3xl md:text-4xl font-bold text-yellow-400 bangers-regular-font text-center">

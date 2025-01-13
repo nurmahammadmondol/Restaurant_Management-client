@@ -27,10 +27,11 @@ const MainHome = () => {
         </div>
 
         <div>
-          <AchievementsAchieved></AchievementsAchieved>
-        </div>
-        <div>
           <WhyChooseUs></WhyChooseUs>
+        </div>
+
+        <div>
+          <AchievementsAchieved></AchievementsAchieved>
         </div>
       </div>
     </>

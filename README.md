@@ -1,8 +1,8 @@
 # Yum Yum Bites: A Food-Based Web Application
 
-### Live Site: [Yum Yum Bites Live](https://stellular-frangipane-a504ed.netlify.app/)
+### Live Site: (https://stellular-frangipane-a504ed.netlify.app/)
 
-### Server Site:
+### Server Site: https://restaurant-management-server-side-seven.vercel.app/AllFoods , https://restaurant-management-server-side-seven.vercel.app/OrderFoods
 
 ## Yum Yum Bites Server
 
@@ -75,7 +75,7 @@ this platform enhances the online food ordering experience.
 
 - On successful order placement, the information is stored in the database, and
   a
-- t\* oast notification is displayed.
+- toast notification is displayed.
 
 ### Gallery Page (Public)
 
@@ -89,7 +89,7 @@ this platform enhances the online food ordering experience.
 
 - Includes an update button/icon to edit food details.
 
-Users can delete their own added food items.
+* Users can delete their own added food items.
 
 ### Add Food Page (Private)
 
@@ -101,15 +101,16 @@ Users can delete their own added food items.
 
 ### My Orders Page (Private)
 
-Displays all food items ordered by the logged-in user.
+- Displays all food items ordered by the logged-in user.
 
-Each order card shows food info, buying date, and a delete button.
+- Each order card shows food info, buying date, and a delete button.
 
-The delete button allows users to remove orders from the list.
+- The delete button allows users to remove orders from the list.
 
-404 Page
+### 404 Page
 
-A custom 404 page with navigation back to the homepage for non-existing routes.
+- A custom 404 page with navigation back to the homepage for non-existing
+  routes.
 
 ### Technologies Used
 
