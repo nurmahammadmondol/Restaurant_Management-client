@@ -30,7 +30,7 @@ const MyFoods = () => {
       <h4 className="md:text-3xl mb-5  text-center bangers-regular-font  underline">
         I added this food
       </h4>
-      {Data.length > 0 ? (
+      {Data?.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}

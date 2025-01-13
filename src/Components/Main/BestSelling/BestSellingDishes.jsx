@@ -24,7 +24,7 @@ const BestSellingDishes = () => {
       <h2 className="text-3xl font-bold text-center mb-6 bangers-regular-font">
         Best Selling <span className="text-green-500">Dishes</span>
       </h2>
-      <div className="relative w-11/12 md:w-10/12 lg:w-9/12 mx-auto my-10 p-5 rounded-lg shadow-lg bg-slate-50">
+      <div className="relative w-11/12  mx-auto my-10 p-5 rounded-lg shadow-lg bg-slate-50">
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
@@ -79,7 +79,6 @@ const BestSellingDishes = () => {
             </>
           ) : (
             <>
-              {' '}
               <SwiperSlide className="w-[250px] first-slide">
                 <img
                   src="https://i.ibb.co.com/qrQLJxx/Pepperoni-Pizza-Beauty-1000x1000.webp"

@@ -73,7 +73,7 @@ const MyOrders = () => {
         My Orders Food
       </h4>
 
-      {OrderData.length > 0 ? (
+      {OrderData?.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}

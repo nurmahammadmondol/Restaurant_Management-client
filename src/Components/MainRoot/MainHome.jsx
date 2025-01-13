@@ -6,6 +6,7 @@ import AchievementsAchieved from '../Main/Achievements/AchievementsAchieved';
 import WhyChooseUs from '../Main/WhyChooseUs/WhyChooseUs';
 import BestSellingDishes from '../Main/BestSelling/BestSellingDishes';
 import { Helmet } from 'react-helmet';
+import MarqueeFoods from '../Main/FoodCalleation/MarqueeFoods';
 
 const MainHome = () => {
   return (
@@ -18,6 +19,11 @@ const MainHome = () => {
         <div className="">
           <MarquSlider></MarquSlider>
         </div>
+
+        <div>
+          <MarqueeFoods></MarqueeFoods>
+        </div>
+
         <div>
           <OurBestCategories></OurBestCategories>
         </div>
