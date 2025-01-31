@@ -4,7 +4,7 @@ import LogoImage from '../../assets/Photo/Resturant Logo.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
 
 const Navbar = () => {
-  const { User, LogOutUser } = useContext(AuthContent);
+  const { User, LogOutUser, orderFood } = useContext(AuthContent);
 
   const Links = (
     <div className="md:flex items-center gap-3 md:gap-7 md:text-lg font-semibold">
@@ -50,7 +50,31 @@ const Navbar = () => {
       <div className="hidden lg:flex ">
         <ul className="menu menu-vertical px-1">{Links}</ul>
       </div>
-      <div className="">
+      <div className="flex items-center gap-5">
+        {User ? (
+          <Link to="/MyOrders">
+            <div className="relative">
+              <button className="">
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+              </button>
+              <div className="w-5 h-5 border rounded-full flex justify-center items-center absolute -top-3 -right-3">
+                <small>{orderFood.length}</small>
+              </div>
+            </div>
+          </Link>
+        ) : (
+          <div className="relative">
+            <Link to="/Login">
+              <button className="">
+                <i class="fa-solid fa-cart-shopping text-xl"></i>
+              </button>
+            </Link>
+            <div className="w-5 h-5 border rounded-full flex justify-center items-center absolute -top-3 -right-3">
+              <small>0</small>
+            </div>
+          </div>
+        )}
+
         {User && (
           <div className="drawer drawer-end">
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />

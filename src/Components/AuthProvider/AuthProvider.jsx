@@ -13,7 +13,29 @@ export const AuthContent = createContext(null);
 
 const AuthProvider = ({ children }) => {
   const [User, setUser] = useState(null);
+  const [orderFood, setOrderFood] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!User) return; // User না থাকলে API কল না করা ভালো
+    setLoading(true);
+
+    fetch(
+      'https://restaurant-management-server-side-seven.vercel.app/OrderFoods'
+    )
+      .then(res => res.json())
+      .then(data => {
+        const UserOrder = data.filter(
+          order => order.OrderUserEmail === User.email
+        );
+        setOrderFood(UserOrder);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching orders:', error);
+        setLoading(false);
+      });
+  }, [User]);
 
   const CreateUserWithEmail = (email, password) => {
     setLoading(true);
@@ -57,7 +79,10 @@ const AuthProvider = ({ children }) => {
     LogOutUser,
     User,
     loading,
+    orderFood,
+    setOrderFood,
   };
+  console.log(orderFood);
 
   return (
     <AuthContent.Provider value={Auth_all_data}>

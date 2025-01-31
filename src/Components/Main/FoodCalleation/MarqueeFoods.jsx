@@ -7,7 +7,9 @@ const MarqueeFoods = () => {
   const [Data, setData] = useState([]);
 
   useEffect(() => {
-    axios('http://localhost:3000/AllFoods').then(res => {
+    axios(
+      'https://restaurant-management-server-side-seven.vercel.app/AllFoods'
+    ).then(res => {
       setData(res.data);
     });
   }, []);
@@ -16,7 +18,7 @@ const MarqueeFoods = () => {
     <div className="mt-36 ">
       <Marquee speed={50} pauseOnHover={true} className="space-x-10">
         <div className="flex gap-10 py-10">
-          {Data.map(food => (
+          {Data?.map(food => (
             <FoodItem key={food._id} food={food}></FoodItem>
           ))}
         </div>

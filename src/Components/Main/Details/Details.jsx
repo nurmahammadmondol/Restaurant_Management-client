@@ -31,19 +31,6 @@ const Details = () => {
     Description,
   } = LoaderDataDetails;
 
-  const OrderFoodInfo = {
-    FoodOwnerName: UserName,
-    FoodOwnerEmail: UserEmail,
-    OrderUserName: User?.displayName,
-    OrderUserEmail: User?.email,
-    Date: time,
-    FoodImage,
-    FoodName,
-    Price,
-    quantity,
-    Size,
-  };
-
   const str = Description;
   const words = str.split(' ');
   const wordCount = words.length;
@@ -66,6 +53,20 @@ const Details = () => {
 
   const handleAddToCart = quantity => {
     // console.log('success');
+
+    const OrderFoodInfo = {
+      FoodOwnerName: UserName,
+      FoodOwnerEmail: UserEmail,
+      OrderUserName: User?.displayName,
+      OrderUserEmail: User?.email,
+      Date: time,
+      FoodImage,
+      FoodName,
+      Price,
+      quantity,
+      Size,
+    };
+
     Swal.fire({
       title: 'Would you like to buy this food?',
 
@@ -112,6 +113,8 @@ const Details = () => {
               text: 'Your food has been ordered successfully..',
               icon: 'success',
               confirmButtonColor: '#eba75f',
+            }).then(() => {
+              navigate(0);
             });
           })
           .catch(error => {

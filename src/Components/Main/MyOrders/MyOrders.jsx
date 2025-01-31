@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 import axios from 'axios';
 import Swal from 'sweetalert2';
@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 
 const MyOrders = () => {
   const { User } = useContext(AuthContent);
+  const navigate = useNavigate();
   const LoadOrderData = useLoaderData();
   const [OrderData, setOrderData] = useState(LoadOrderData);
   const [OrderUserFood, setOrderUserFood] = useState([]);
@@ -45,6 +46,8 @@ const MyOrders = () => {
               text: 'Your food has been successfully deleted.',
               icon: 'success',
               confirmButtonColor: '#eba75f',
+            }).then(() => {
+              navigate(0);
             });
           })
           .catch(error => {
