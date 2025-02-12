@@ -1,6 +1,7 @@
 import React from 'react';
 import BG from '../../../assets/Photo/Bg-banner222.jpg';
 import pizzaDe from '../../../assets/Photo/pizza-delivery.webp';
+import CountUp from 'react-countup';
 
 const AchievementsAchieved = () => {
   return (
@@ -11,7 +12,7 @@ const AchievementsAchieved = () => {
         backgroundPosition: 'center',
         opacity: 0.7,
       }}
-      className="h-full md:h-[230px] w-11/12 md:w-10/12 lg:w-9/12 mx-auto rounded-lg relative p-3 md:p-8 mt-44 mb-20"
+      className="h-full md:h-[230px] w-11/12  lg:w-9/12 mx-auto rounded-lg relative p-3 md:p-8 mt-44 mb-20"
     >
       <div className="">
         <h3 className="text-3xl md:text-4xl font-bold text-yellow-400 bangers-regular-font text-center">
@@ -22,20 +23,47 @@ const AchievementsAchieved = () => {
             <div className="">
               <div className="stat-figure"></div>
               <div className="">Total Likes</div>
-              <div className="stat-value ">25.6K</div>
+              <div className="stat-value ">
+                <CountUp
+                  start={0}
+                  end={25.6}
+                  duration={5}
+                  decimals={1}
+                  suffix="k"
+                  className="font-bold "
+                />
+              </div>
               <div className="text-xs md:text-lg">21% more than last month</div>
             </div>
 
             <div className="border-x-2 border-white px-5">
               <div className=""></div>
               <div className="">Page Views</div>
-              <div className="stat-value ">2.6M</div>
+              <div className="stat-value ">
+                <CountUp
+                  start={0}
+                  end={2.6}
+                  duration={6}
+                  decimals={1}
+                  suffix="M"
+                  className="font-bold "
+                />
+              </div>
               <div className="text-xs md:text-lg">21% more than last month</div>
             </div>
 
             <div className="">
               <div className=""></div>
-              <div className="stat-value">86%</div>
+              <div className="stat-value ">
+                <CountUp
+                  start={0}
+                  end={86}
+                  duration={5}
+                  decimals={0}
+                  suffix="%"
+                  className="font-bold "
+                />
+              </div>
               <div className="">Tasks done</div>
               <div className="text-xs md:text-lg">31 tasks remaining</div>
             </div>

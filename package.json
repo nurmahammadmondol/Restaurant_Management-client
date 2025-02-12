@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.65.1",
+    "add": "^2.0.6",
     "aos": "^2.3.4",
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
@@ -20,6 +21,7 @@
     "match-sorter": "^8.0.0",
     "motion": "^11.16.4",
     "react": "^18.3.1",
+    "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",
     "react-helmet": "^6.1.0",
