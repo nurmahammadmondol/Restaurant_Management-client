@@ -1,6 +1,7 @@
 # Yum Yum Bites: A Food-Based Web Application
 
-### Live Site: (https://stellular-frangipane-a504ed.netlify.app/)
+## 🚀 Live Site
+🔗 [Yum Yum Bites Restaurant](https://yumyum-bites-restaurant.netlify.app/)
 
 ### Server Site: https://restaurant-management-server-side-seven.vercel.app/AllFoods , https://restaurant-management-server-side-seven.vercel.app/OrderFoods
 
