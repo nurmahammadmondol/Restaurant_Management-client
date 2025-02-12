@@ -54,14 +54,32 @@ const AllFoods = () => {
     }
   };
 
+  // const handleSearch = event => {
+  //   setSearchTerm(event.target.value.toLowerCase());
+
+  //   const filteredItems = Data.filter(item =>
+  //     item.FoodName.toLowerCase().includes(searchTerm)
+  //   );
+
+  //   setData(filteredItems);
+  //   setParPageItem(LoaderData?.length);
+  // };
+
   const handleSearch = event => {
-    setSearchTerm(event.target.value.toLowerCase());
+    const value = event.target.value.toLowerCase();
+    setSearchTerm(value);
 
-    const filteredItems = Data.filter(item =>
-      item.FoodName.toLowerCase().includes(searchTerm)
-    );
+    if (value.trim().length > 0) {
+      // ইনপুটে যদি ১টা বা তার বেশি অক্ষর থাকে, তাহলে ফিল্টার করো
+      const filteredItems = Data.filter(item =>
+        item.FoodName.toLowerCase().includes(value)
+      );
+      setData(filteredItems);
+    } else {
+      // ইনপুট একদম ফাঁকা হলে পুরো Data লোড করো
+      setData(LoaderData);
+    }
 
-    setData(filteredItems);
     setParPageItem(LoaderData?.length);
   };
 
@@ -152,10 +170,10 @@ const AllFoods = () => {
               Size
             </h6>
             <div className="flex items-center gap-2">
-              <button className="btn btn-circle">M</button>
-              <button className="btn btn-circle">L</button>
-              <button className="btn btn-circle">XL</button>
-              <button className="btn btn-circle">XXL</button>
+              <button className="btn btn-circle bg-orange-100">6"</button>
+              <button className="btn btn-circle bg-orange-100">10"</button>
+              <button className="btn btn-circle bg-orange-100">16"</button>
+              <button className="btn btn-circle bg-orange-100">32"</button>
             </div>
           </div>
         </div>

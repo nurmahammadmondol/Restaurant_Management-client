@@ -17,28 +17,28 @@ const OurBestCategories = () => {
         Our Best <span className="text-green-700">categories</span>
       </h4>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 mt-7 gap-5">
-        <div className="border rounded-lg  h-[250px] col-span-2 md:col-span-3 flex items-center justify-center p-5 bg-gray-100">
+      <div className="w-11/12 md:w-full mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 mt-7 gap-7 lg:gap-5">
+        <div className="border rounded-lg  h-[250px] md:col-span-2 lg:col-span-3 flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full" src={Pizza} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px]  flex items-center justify-center p-5 bg-gray-100">
+        <div className="border rounded-lg h-[250px]  flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full" src={Burger} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-100">
+        <div className="border rounded-lg h-[250px]  lg:col-span-2  flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full " src={sandwich} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-1  flex items-center justify-center p-5 bg-gray-100">
+        <div className="border rounded-lg h-[250px] md:col-span-2 lg:col-span-1  flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full" src={friedChicken} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-gray-100">
+        <div className="border rounded-lg h-[250px] md:col-span-2  flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full" src={sorma} alt="" />
         </div>
 
-        <div className="border rounded-lg h-[250px] col-span-2 md:col-span-3  flex items-center justify-center p-5 bg-gray-100">
+        <div className="border rounded-lg h-[250px]  lg:col-span-3  flex items-center justify-center p-5 bg-orange-100">
           <img className="h-full" src={muffins} alt="" />
         </div>
       </div>
@@ -46,7 +46,7 @@ const OurBestCategories = () => {
       <div className="flex justify-center mt-10">
         <Link to="/AllFoods">
           <button className="btn px-10 btn-outline text-orange-400 font-bold">
-            All Foods<i class="fa-solid fa-arrow-right"></i>
+            See All Foods<i class="fa-solid fa-arrow-right"></i>
           </button>
         </Link>
       </div>

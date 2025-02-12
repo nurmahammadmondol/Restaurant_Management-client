@@ -7,10 +7,9 @@ const FoodItem = ({ food }) => {
 
   return (
     <motion.div
-      className="card bg-orange-50 w-full md:w-[350px] shadow-xl p-5"
-      data-aos="zoom-in-right"
+      className="card bg-orange-50 w-[300px] lg:w-[350px] shadow-xl p-5"
       whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      // whileTap={{ scale: 0.9 }}
       transition={{ stiffness: 400, damping: 10 }}
     >
       <figure className="">
