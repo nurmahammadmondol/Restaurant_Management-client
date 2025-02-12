@@ -7,6 +7,7 @@ import WhyChooseUs from '../Main/WhyChooseUs/WhyChooseUs';
 import BestSellingDishes from '../Main/BestSelling/BestSellingDishes';
 import { Helmet } from 'react-helmet';
 import MarqueeFoods from '../Main/FoodCalleation/MarqueeFoods';
+import Offers from '../Main/Offers/Offers';
 
 const MainHome = () => {
   return (
@@ -26,6 +27,10 @@ const MainHome = () => {
 
         <div>
           <OurBestCategories></OurBestCategories>
+        </div>
+
+        <div>
+          <Offers></Offers>
         </div>
 
         <div className="my-20">

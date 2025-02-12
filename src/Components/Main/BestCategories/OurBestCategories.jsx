@@ -12,9 +12,9 @@ const OurBestCategories = () => {
   const { name } = useContext(AuthContent);
 
   return (
-    <div className="w-11/12 mx-auto my-32">
+    <div className="w-11/12 mx-auto my-20">
       <h4 className="text-3xl md:text-5xl lg:text-6xl font-bold bangers-regular-font">
-        Our Best <span className="text-green-700">categories</span>
+        Our Best <span className="text-green-500">categories</span>
       </h4>
 
       <div className="w-11/12 md:w-full mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 mt-7 gap-7 lg:gap-5">

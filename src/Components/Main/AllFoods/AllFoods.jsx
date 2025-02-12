@@ -5,6 +5,14 @@ import muffinLogo from '../../../assets/Photo/muffin_PNG24.png';
 import burritoLogo from '../../../assets/Photo/food-burrito-stroke-9a4868.webp';
 import taco from '../../../assets/Photo/file (2).png';
 import { Helmet } from 'react-helmet';
+import { BiSolidOffer } from 'react-icons/bi';
+import {
+  FaBirthdayCake,
+  FaCoffee,
+  FaGift,
+  FaHandPointRight,
+  FaPizzaSlice,
+} from 'react-icons/fa';
 
 const AllFoods = () => {
   const LoaderData = useLoaderData();
@@ -170,10 +178,79 @@ const AllFoods = () => {
               Size
             </h6>
             <div className="flex items-center gap-2">
-              <button className="btn btn-circle bg-orange-100">6"</button>
-              <button className="btn btn-circle bg-orange-100">10"</button>
-              <button className="btn btn-circle bg-orange-100">16"</button>
-              <button className="btn btn-circle bg-orange-100">32"</button>
+              <button className="btn btn-circle bg-orange-100 text-orange-500">
+                6"
+              </button>
+              <button className="btn btn-circle bg-orange-100 text-orange-500">
+                10"
+              </button>
+              <button className="btn btn-circle bg-orange-100 text-orange-500">
+                16"
+              </button>
+              <button className="btn btn-circle bg-orange-100 text-orange-500">
+                32"
+              </button>
+            </div>
+
+            <h6 className="text-2xl bangers-regular-font mt-10 md:mt-16 mb-3 border-b-2 flex items-center gap-2">
+              <BiSolidOffer /> Offer Items
+            </h6>
+
+            <div className="flex flex-col gap-3">
+              <div className="collapse collapse-plus bg-orange-50">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-orange-400 font-medium flex items-center gap-2">
+                  <FaPizzaSlice size={20} /> Buy 1 Get 1 Free
+                </div>
+                <div className="collapse-content">
+                  <p className="text-orange-300 flex items-center gap-2">
+                    Order a large pizza (32") now. <FaHandPointRight />
+                  </p>
+                </div>
+              </div>
+
+              <div className="collapse collapse-plus bg-orange-50">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-orange-400 font-medium flex items-center gap-2">
+                  <FaCoffee size={20} /> Happy Hour Deals
+                </div>
+                <div className="collapse-content">
+                  <p className="text-orange-300 flex items-end ">
+                    Enjoy 10% off on all drinks from 1pm to 5pm, So order now!
+                    <FaHandPointRight />
+                  </p>
+                </div>
+              </div>
+
+              <div className="collapse collapse-plus bg-orange-50">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-orange-400 font-medium flex items-center gap-2">
+                  <FaBirthdayCake size={20} />
+                  Birthday Special
+                </div>
+                <div className="collapse-content">
+                  <p className="text-orange-300 flex items-end ">
+                    Get a free dessert on your birthday! Just show your ID.
+                  </p>
+
+                  <input
+                    type="file"
+                    className="file-input file-input-xs file-input-warning  file-input-bordered  w-full mt-4"
+                  />
+                </div>
+              </div>
+
+              <div className="collapse collapse-plus bg-orange-50">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-orange-400 font-medium  flex items-center gap-2">
+                  <FaGift size={20} /> Festival Discount
+                </div>
+                <div className="collapse-content">
+                  <p className="text-orange-300 ">
+                    Enjoy exclusive discounts on special occasions!
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

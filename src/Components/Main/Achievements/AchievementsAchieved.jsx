@@ -27,7 +27,7 @@ const AchievementsAchieved = () => {
                 <CountUp
                   start={0}
                   end={25.6}
-                  duration={5}
+                  duration={7}
                   decimals={1}
                   suffix="k"
                   className="font-bold "
@@ -43,7 +43,7 @@ const AchievementsAchieved = () => {
                 <CountUp
                   start={0}
                   end={2.6}
-                  duration={6}
+                  duration={8}
                   decimals={1}
                   suffix="M"
                   className="font-bold "
@@ -58,7 +58,7 @@ const AchievementsAchieved = () => {
                 <CountUp
                   start={0}
                   end={86}
-                  duration={5}
+                  duration={7}
                   decimals={0}
                   suffix="%"
                   className="font-bold "
