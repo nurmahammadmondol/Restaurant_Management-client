@@ -12,7 +12,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  let from = location.state?.from?.pathname || '/';
+  const from = location.state?.from?.pathname || '/';
 
   const [passwordShow, setPasswordShow] = useState(false);
 
@@ -59,7 +59,8 @@ const Login = () => {
           showConfirmButton: false,
           timer: 1500,
         });
-        navigate('/');
+        // আগের page থেকে এসেছে কিনা তা চেক করে navigate করো:
+        navigate(from, { replace: true });
       })
       .catch(error => {
         console.log(error.message);

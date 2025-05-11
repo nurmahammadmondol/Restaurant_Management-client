@@ -1,6 +1,11 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData, useNavigate } from 'react-router-dom';
+import {
+  Link,
+  useLoaderData,
+  useLocation,
+  useNavigate,
+} from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContent } from '../../AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet';
@@ -8,6 +13,7 @@ import { Helmet } from 'react-helmet';
 const Details = () => {
   const navigate = useNavigate();
   const { User } = useContext(AuthContent);
+  const location = useLocation(); // useLocation hook
 
   // console.log(User.displayName);
   // console.log(User.email);
@@ -255,7 +261,7 @@ const Details = () => {
                 <i class="fa-solid fa-cart-shopping"></i>Buy Now
               </button>
             ) : (
-              <Link to="/Login">
+              <Link to="/Login" state={{ from: location }}>
                 <button className="btn bg-orange-400 text-white flex items-center gap-2 uppercase text-xs font-bold  px-10">
                   <i class="fa-solid fa-cart-shopping"></i>Buy Now
                 </button>

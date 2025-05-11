@@ -18,27 +18,8 @@ const PrivetRoot = ({ children }) => {
     return children;
   }
 
-  return <Navigate to="/Login" state={{ from: location }} replace></Navigate>;
+  return <Navigate to="/Login" state={{ from: location }} replace />;
+  // return <Navigate to="/Login" state={{ from: location }} replace></Navigate>;
 };
 
 export default PrivetRoot;
-
-// const Privet = ({ children }) => {
-//   const { User, loading } = useContext(AuthContent);
-
-//   if (loading) {
-//     return (
-//       <div className="min-h-screen flex justify-center items-center">
-//         <span className="loading loading-spinner loading-lg"></span>
-//       </div>
-//     );
-//   }
-
-//   if (User) {
-//     return children;
-//   }
-
-//   return <Navigate to="/"></Navigate>;
-// };
-
-// export default Privet;
