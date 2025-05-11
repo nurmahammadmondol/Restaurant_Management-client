@@ -89,6 +89,7 @@ const Navbar = () => {
                   className="w-14 h-14 border rounded-full hover:cursor-pointer"
                   src={User?.photoURL}
                   alt=""
+                  title="Click Here"
                 />
               </label>
             </div>
