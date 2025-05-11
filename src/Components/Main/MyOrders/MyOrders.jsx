@@ -32,7 +32,9 @@ const MyOrders = () => {
     }).then(result => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:3000/OrderFoods/${ID}`)
+          .delete(
+            `https://restaurant-management-server-side-seven.vercel.app/OrderFoods/${ID}`
+          )
           .then(() => {
             console.log('success delete');
             const FilterRemoveFoods = OrderUserFood.filter(
@@ -74,7 +76,7 @@ const MyOrders = () => {
         My Orders Food
       </h4>
 
-      {OrderData?.length > 0 ? (
+      {OrderData.length > 0 ? (
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}

@@ -1,125 +1,60 @@
-# Yum Yum Bites: A Food-Based Web Application
+# 🍔 Yum Yum Bites – A Food Ordering Web App
 
-## 🚀 Live Site 🔗 [Yum Yum Bites Restaurant](https://yumyum-bites-restaurant.netlify.app/)
+Yum Yum Bites is a responsive and user-friendly food ordering platform where
+users can browse, add, update, and order food items seamlessly.
 
-#### Server Site: http://localhost:3000/AllFoods , http://localhost:3000/OrderFoods
+## 🚀 Live Demo
 
-## Yum Yum Bites Server
+- 🔗 [Live Site](https://yumyum-bites-restaurant.netlify.app/)
+- 🔗
+  [All Foods API](https://restaurant-management-server-side-seven.vercel.app/AllFoods)
+- 🔗
+  [Order Foods API](https://restaurant-management-server-side-seven.vercel.app/OrderFoods)
 
-Yum Yum Bites is a responsive food ordering platform that allows users to
-browse, add, update, and order food items. With a user-friendly interface,
-robust authentication system, and private routes for personalized experiences,
-this platform enhances the online food ordering experience.
+---
 
-### Key Features
+## ✨ Key Features
 
-- User Authentication: Email/password-based login/register with Google login
-  option. Conditional navbar buttons based on login state.
+- 🔐 **Authentication:** Firebase login/register with Google login support.
+- 🔒 **Private Routes:** Add Food, My Foods, My Orders, and Purchase are
+  accessible only to logged-in users.
+- 🍱 **Food Management:** Add, update, or delete your own food items.
+- 🛒 **Ordering System:** Order foods with real-time stock validation.
+- 📱 **Responsive Design:** Works perfectly on mobile, tablet, and desktop.
+- 🔍 **Search Feature:** Filter food items by name.
+- 📸 **Gallery Page:** View static images with lightbox.
 
-- Private Routes: Add Food, My Foods, My Orders, and Food Purchase pages are
-  restricted to authenticated users only.
+---
 
-- Food Management: Users can add, view, update, or delete their own added food
-  items.
+## 📄 Pages Overview
 
-- Order Management: Users can order food items and view their orders with
-  purchase date and time.
+- **Home:** Banner, Top 6 Foods, and engaging sections.
+- **All Foods:** Searchable food listing with details view.
+- **Gallery:** 10+ static images with interactive lightbox.
+- **Food Purchase:** Form with auto-filled buyer details (private).
+- **My Foods:** View, update, or delete your added foods (private).
+- **Add Food:** Add new food with origin, description, etc. (private)
+- **My Orders:** View and delete your orders (private).
+- **404 Page:** Custom error page with a redirect to Home.
 
-- Responsive Design: Fully responsive layout for mobile, tablet, and desktop
-  views.
+---
 
-- Search Functionality: Search food items by name on the All Foods page.
+## 🛠 Tech Stack
 
-- Real-Time Updates: Quantity validation ensures users cannot purchase more than
-  available stock.
+| Frontend | Backend | Database | Auth     | Hosting                           |
+| -------- | ------- | -------- | -------- | --------------------------------- |
+| React.js | Node.js | MongoDB  | Firebase | Netlify (client), Vercel (server) |
 
-- Pages Overview
+---
 
-- Navbar
+## 📦 Installation & Setup
 
-- Displays the website logo and navigation links for Home, All Foods, Gallery,
-  Add Food, My Foods, and My Orders.
+1. **Clone the Repo:**
+   ```bash
+   git clone https://github.com/nurmahammadmondol/Restaurant_Management-client.git
+   cd yum-yum-bites
+   ```
 
-- Conditional rendering of login/register buttons or user profile with a logout
-  option.
+---
 
-### Home Page (Public)
-
-- Includes a banner with a heading, short description, and a button redirecting
-  to the All Foods page.
-
-- Top Foods section displaying the 6 top-selling food items.
-
-- Additional two attractive sections for user engagement.
-
-### All Foods Page (Public)
-
-- Displays all food items stored in the database.
-
-- Includes a search bar to filter food items by name.
-
-- Each food card displays essential information and a "View Details" button.
-
-### Single Food Page (Public)
-
-- Shows detailed information about a single food item, including the purchase
-  count.
-
-- A purchase button redirects users to the Food Purchase page.
-
-### Food Purchase Page (Private)
-
-- Contains a form with fields: Food Name, Price, Quantity, Buyer Name
-  (read-only),
-- Buyer Email (read-only), and Buying Date (auto-generated).
-
-- On successful order placement, the information is stored in the database, and
-  a
-- toast notification is displayed.
-
-### Gallery Page (Public)
-
-- Displays at least 10 static images in a gallery format.
-
-- Clicking on an image opens a lightbox for a larger view.
-
-### My Foods Page (Private)
-
-- Displays all food items added by the logged-in user.
-
-- Includes an update button/icon to edit food details.
-
-* Users can delete their own added food items.
-
-### Add Food Page (Private)
-
-- A form for adding new food items with fields: Food Name, Food Image, Category,
-  Quantity, Price, Added By (auto-filled with logged-in user’s name and email),
-  Food Origin, and a short description.
-
-- On successful addition, a toast notification is displayed.
-
-### My Orders Page (Private)
-
-- Displays all food items ordered by the logged-in user.
-
-- Each order card shows food info, buying date, and a delete button.
-
-- The delete button allows users to remove orders from the list.
-
-### 404 Page
-
-- A custom 404 page with navigation back to the homepage for non-existing
-  routes.
-
-### Technologies Used
-
-- Frontend: React.js, Tailwind CSS
-
-- Backend: Node.js, Express.js
-
-- Database: MongoDB
-
-- Authentication: Firebase Authentication
-
-- Hosting: Netlify (Frontend), Vercel (Backend)
+Let me know if you want it with real links and your actual name/portfolio info!

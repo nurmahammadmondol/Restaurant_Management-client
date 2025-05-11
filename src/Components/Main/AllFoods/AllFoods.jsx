@@ -32,7 +32,7 @@ const AllFoods = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
+      `https://restaurant-management-server-side-seven.vercel.app/AllFoods?CurrentPage=${CurrentPage}&parPageItem=${parPageItem}`
     )
       .then(res => res.json())
       .then(data => {

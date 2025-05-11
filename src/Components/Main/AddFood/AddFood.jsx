@@ -39,7 +39,10 @@ const AddFood = () => {
     };
 
     axios
-      .post('http://localhost:3000/AllFoods', All_Data)
+      .post(
+        'https://restaurant-management-server-side-seven.vercel.app/AllFoods',
+        All_Data
+      )
       .then(data => {
         console.log(data.data);
 

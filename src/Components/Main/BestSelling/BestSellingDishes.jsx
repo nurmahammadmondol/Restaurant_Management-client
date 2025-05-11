@@ -9,7 +9,9 @@ const BestSellingDishes = () => {
   const [BestSellingDishes, setBestSellingDishes] = useState([]); // Correct state initialization
 
   useEffect(() => {
-    fetch('http://localhost:3000/OrderFoods')
+    fetch(
+      'https://restaurant-management-server-side-seven.vercel.app/OrderFoods'
+    )
       .then(res => res.json())
       .then(data => {
         // console.log(data);
