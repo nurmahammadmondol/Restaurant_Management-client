@@ -32,9 +32,7 @@ const MyOrders = () => {
     }).then(result => {
       if (result.isConfirmed) {
         axios
-          .delete(
-            `https://restaurant-management-server-side-seven.vercel.app/OrderFoods/${ID}`
-          )
+          .delete(`http://localhost:3000/OrderFoods/${ID}`)
           .then(() => {
             console.log('success delete');
             const FilterRemoveFoods = OrderUserFood.filter(

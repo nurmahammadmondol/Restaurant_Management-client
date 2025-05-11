@@ -2,6 +2,9 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LogoImage from '../../assets/Photo/Resturant Logo.png';
 import { AuthContent } from '../AuthProvider/AuthProvider';
+import { MdAddBusiness } from 'react-icons/md';
+import { IoPersonAddSharp } from 'react-icons/io5';
+import { FaCartShopping } from 'react-icons/fa6';
 
 const Navbar = () => {
   const { User, LogOutUser, orderFood } = useContext(AuthContent);
@@ -110,19 +113,25 @@ const Navbar = () => {
 
                 <Link to="/AddFood">
                   <li>
-                    <a>Add Food</a>
+                    <a>
+                      <MdAddBusiness className="text-lg" /> Add Food
+                    </a>
                   </li>
                 </Link>
 
                 <Link to="/MyFoods">
                   <li>
-                    <a>My Foods</a>
+                    <a>
+                      <IoPersonAddSharp className="text-lg" /> My Foods
+                    </a>
                   </li>
                 </Link>
 
                 <Link to="/MyOrders">
                   <li>
-                    <a>My Orders</a>
+                    <a>
+                      <FaCartShopping className="text-lg" /> My Orders
+                    </a>
                   </li>
                 </Link>
 

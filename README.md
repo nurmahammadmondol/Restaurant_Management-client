@@ -2,7 +2,7 @@
 
 ## 🚀 Live Site 🔗 [Yum Yum Bites Restaurant](https://yumyum-bites-restaurant.netlify.app/)
 
-#### Server Site: https://restaurant-management-server-side-seven.vercel.app/AllFoods , https://restaurant-management-server-side-seven.vercel.app/OrderFoods
+#### Server Site: http://localhost:3000/AllFoods , http://localhost:3000/OrderFoods
 
 ## Yum Yum Bites Server
 

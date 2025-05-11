@@ -20,9 +20,7 @@ const AuthProvider = ({ children }) => {
     if (!User) return; // User না থাকলে API কল না করা ভালো
     setLoading(true);
 
-    fetch(
-      'https://restaurant-management-server-side-seven.vercel.app/OrderFoods'
-    )
+    fetch('http://localhost:3000/OrderFoods')
       .then(res => res.json())
       .then(data => {
         const UserOrder = data.filter(

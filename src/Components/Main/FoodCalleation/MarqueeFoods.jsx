@@ -7,9 +7,7 @@ const MarqueeFoods = () => {
   const [Data, setData] = useState([]);
 
   useEffect(() => {
-    axios(
-      'https://restaurant-management-server-side-seven.vercel.app/AllFoods'
-    ).then(res => {
+    axios('http://localhost:3000/AllFoods').then(res => {
       setData(res.data);
     });
   }, []);
